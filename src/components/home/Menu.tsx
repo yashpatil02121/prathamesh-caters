@@ -62,9 +62,21 @@ export function Menu() {
 
         <div className="mx-auto mt-10 max-w-2xl sm:mt-12">
           <div className="relative">
-            <SearchIcon />
+                <span
+                    className="
+                    pointer-events-none
+                    absolute
+                    left-5
+                    top-1/2
+                    z-10
+                    -translate-y-1/2
+                    text-body
+                    "
+                >
+                    <SearchIcon />
+                </span>
 
-            <input
+                <input
               type="search"
               value={searchQuery}
               onChange={(event) =>
