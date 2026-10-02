@@ -1,5 +1,6 @@
 import { business } from "../../config/business";
 import { Button } from "../ui/Button";
+import foodImage from "../../assets/food.webp";
 
 export function Hero() {
   return (
@@ -85,6 +86,12 @@ export function Hero() {
               lg:rounded-r-none
             "
           >
+
+            <img
+            src={foodImage}
+            alt="Prathamesh Catering"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            />
             {/* Decorative food/event visual */}
             <div
               className="
@@ -117,51 +124,6 @@ export function Hero() {
               Catering & Decoration
             </div>
 
-            {/* Center decorative element */}
-            <div
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                flex
-                h-32
-                w-32
-                -translate-x-1/2
-                -translate-y-1/2
-                items-center
-                justify-center
-                rounded-full
-                border
-                border-accent/50
-                bg-black/10
-                backdrop-blur-sm
-                sm:h-40
-                sm:w-40
-              "
-            >
-              <div
-                className="
-                  flex
-                  h-24
-                  w-24
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-white/20
-                  bg-brand/50
-                  text-center
-                  sm:h-32
-                  sm:w-32
-                "
-              >
-                {/* <span className="text-xs font-medium uppercase tracking-[0.15em] text-white/90 sm:text-sm">
-                  Celebrate
-                  <br />
-                  With Us
-                </span> */}
-              </div>
-            </div>
 
             {/* Bottom visual label */}
             <div
@@ -182,7 +144,6 @@ export function Hero() {
                 Since your celebration
               </span>
 
-              <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_18px_rgba(226,132,19,0.8)]" />
             </div>
           </div>
 
@@ -219,17 +180,9 @@ export function Hero() {
               "
             >
               Beautiful
-              <span className="block text-accent">
-                Celebrations.
-              </span>
-
-              <span className="block">
-                Memorable
-              </span>
-
-              <span className="block">
-                Flavours.
-              </span>
+              <span className="block text-accent">Celebrations.</span>
+              <span className="block">Memorable</span>
+              <span className="block">Flavours.</span>
             </h1>
 
             {/* Description */}
@@ -244,8 +197,8 @@ export function Hero() {
                 sm:leading-7
               "
             >
-              Premium catering and beautiful event experiences
-              crafted for weddings, celebrations and special occasions.
+              Premium catering and beautiful event experiences crafted for
+              weddings, celebrations and special occasions.
             </p>
 
             {/* CTA */}
