@@ -7,6 +7,15 @@ export function Menu() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
 
+  const featuredCategoryIds = [
+    "starter",
+    "veg-main-course",
+    "paneer-main-course",
+    "sweets",
+    "chat-counter-live",
+    "ice-cream",
+  ];
+
   const filteredMenu = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
@@ -14,8 +23,7 @@ export function Menu() {
       return activeCategory === "all"
         ? menu
         : menu.filter(
-            (category) =>
-              category.id === activeCategory,
+            (category) => category.id === activeCategory,
           );
     }
 
@@ -48,35 +56,44 @@ export function Menu() {
       );
   }, [searchQuery, activeCategory]);
 
+  const resultCount = filteredMenu.reduce(
+    (total, category) => total + category.items.length,
+    0,
+  );
+
   return (
     <section
       id="menu"
       className="bg-cream/40 py-20 sm:py-24 lg:py-32"
     >
       <div className="container-custom">
+        {/* Section heading */}
         <SectionHeading
           eyebrow="Our Menu"
           title="A taste for every celebration"
           description="Explore our selection of dishes, live counters, sweets, beverages and more."
         />
 
+        {/* Search */}
         <div className="mx-auto mt-10 max-w-2xl sm:mt-12">
           <div className="relative">
-                <span
-                    className="
-                    pointer-events-none
-                    absolute
-                    left-5
-                    top-1/2
-                    z-10
-                    -translate-y-1/2
-                    text-body
-                    "
-                >
-                    <SearchIcon />
-                </span>
+            {/* Search icon */}
+            <span
+              className="
+                pointer-events-none
+                absolute
+                left-5
+                top-1/2
+                z-10
+                -translate-y-1/2
+                text-body
+              "
+            >
+              <SearchIcon />
+            </span>
 
-                <input
+            {/* Search input */}
+            <input
               type="search"
               value={searchQuery}
               onChange={(event) =>
@@ -106,6 +123,7 @@ export function Menu() {
               "
             />
 
+            {/* Clear search */}
             {searchQuery && (
               <button
                 type="button"
@@ -134,33 +152,247 @@ export function Menu() {
           </div>
         </div>
 
-        <CategoryNavigation
-          activeCategory={activeCategory}
+        {/* Featured categories */}
+        <FeaturedCategories
+          categoryIds={featuredCategoryIds}
           onCategoryChange={setActiveCategory}
         />
 
-        <div className="mt-8 space-y-5 sm:mt-10 sm:space-y-6">
-          {filteredMenu.length > 0 ? (
-            filteredMenu.map((category) => (
-              <MenuSection
-                key={category.id}
-                category={category}
-              />
-            ))
-          ) : (
-            <EmptyState
-              searchQuery={searchQuery}
-              onClear={() => {
-                setSearchQuery("");
-                setActiveCategory("all");
-              }}
-            />
+        {/* Full menu navigation */}
+        <div className="mt-10 sm:mt-12">
+          <div className="mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              Full Menu
+            </p>
+
+            <h3 className="mt-1 text-lg font-semibold text-brand sm:text-xl">
+              Browse by category
+            </h3>
+          </div>
+
+          <CategoryNavigation
+            activeCategory={activeCategory}
+            onCategoryChange={setActiveCategory}
+          />
+        </div>
+
+        {/* Results */}
+        <div className="mt-8 sm:mt-10">
+          {filteredMenu.length > 0 && (
+            <div className="mb-4 flex items-center justify-between">
+              <p className="text-xs text-muted sm:text-sm">
+                Showing{" "}
+                <span className="font-semibold text-brand">
+                  {resultCount}
+                </span>{" "}
+                dishes
+              </p>
+
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="text-xs font-semibold text-accent hover:text-brand sm:text-sm"
+                >
+                  Clear search
+                </button>
+              )}
+            </div>
           )}
+
+          <div className="space-y-5 sm:space-y-6">
+            {filteredMenu.length > 0 ? (
+              filteredMenu.map((category) => (
+                <MenuSection
+                  key={category.id}
+                  category={category}
+                />
+              ))
+            ) : (
+              <EmptyState
+                searchQuery={searchQuery}
+                onClear={() => {
+                  setSearchQuery("");
+                  setActiveCategory("all");
+                }}
+              />
+            )}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+/* =========================================================
+   Featured Categories
+========================================================= */
+
+type FeaturedCategoriesProps = {
+  categoryIds: string[];
+  onCategoryChange: (category: string) => void;
+};
+
+function FeaturedCategories({
+  categoryIds,
+  onCategoryChange,
+}: FeaturedCategoriesProps) {
+  const categories = categoryIds
+    .map((id) =>
+      menu.find((category) => category.id === id),
+    )
+    .filter(
+      (category): category is (typeof menu)[number] =>
+        Boolean(category),
+    );
+
+  return (
+    <div className="mt-10 sm:mt-12">
+      <div className="mb-4 flex items-end justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+            Explore
+          </p>
+
+          <h3 className="mt-1 text-lg font-semibold text-brand sm:text-xl">
+            Popular Categories
+          </h3>
+        </div>
+
+        <span className="text-xs text-muted sm:text-sm">
+          Swipe to explore
+        </span>
+      </div>
+
+      <div
+        className="
+          -mx-4
+          flex
+          gap-3
+          overflow-x-auto
+          px-4
+          pb-2
+          scrollbar-none
+          sm:mx-0
+          sm:grid
+          sm:grid-cols-2
+          sm:gap-4
+          sm:overflow-visible
+          sm:px-0
+          lg:grid-cols-3
+        "
+      >
+        {categories.map((category) => (
+          <FeaturedCategoryCard
+            key={category.id}
+            category={category}
+            onClick={() => onCategoryChange(category.id)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* =========================================================
+   Featured Category Card
+========================================================= */
+
+type FeaturedCategoryCardProps = {
+  category: (typeof menu)[number];
+  onClick: () => void;
+};
+
+function FeaturedCategoryCard({
+  category,
+  onClick,
+}: FeaturedCategoryCardProps) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="
+        group
+        relative
+        min-w-[190px]
+        overflow-hidden
+        rounded-2xl
+        border
+        border-brand/10
+        bg-brand
+        p-5
+        text-left
+        transition-all
+        duration-300
+        hover:-translate-y-1
+        hover:shadow-xl
+        sm:min-w-0
+        sm:rounded-3xl
+        sm:p-6
+      "
+    >
+      {/* Decorative circle */}
+      <span
+        aria-hidden="true"
+        className="
+          absolute
+          -right-10
+          -top-10
+          h-28
+          w-28
+          rounded-full
+          bg-accent/20
+          transition-transform
+          duration-500
+          group-hover:scale-150
+        "
+      />
+
+      {/* Bottom accent */}
+      <span
+        aria-hidden="true"
+        className="
+          absolute
+          bottom-0
+          right-0
+          h-1
+          w-0
+          bg-accent
+          transition-all
+          duration-300
+          group-hover:w-full
+        "
+      />
+
+      <div className="relative">
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-accent">
+          <span className="h-2 w-2 rounded-full bg-accent" />
+        </span>
+
+        <h4 className="mt-6 text-lg font-semibold leading-tight text-white">
+          {category.title}
+        </h4>
+
+        <div className="mt-2 flex items-center justify-between">
+          <span className="text-xs text-white/60">
+            {category.items.length}{" "}
+            {category.items.length === 1
+              ? "dish"
+              : "dishes"}
+          </span>
+
+          <span className="text-sm text-accent transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
+        </div>
+      </div>
+    </button>
+  );
+}
+
+/* =========================================================
+   Category Navigation
+========================================================= */
 
 type CategoryNavigationProps = {
   activeCategory: string;
@@ -174,10 +406,10 @@ function CategoryNavigation({
   return (
     <div
       className="
-        mt-8
         -mx-4
         overflow-x-auto
         px-4
+        pb-2
         sm:mx-0
         sm:px-0
       "
@@ -203,6 +435,10 @@ function CategoryNavigation({
     </div>
   );
 }
+
+/* =========================================================
+   Category Button
+========================================================= */
 
 type CategoryButtonProps = {
   label: string;
@@ -234,8 +470,8 @@ function CategoryButton({
         sm:text-sm
         ${
           active
-            ? "border-brand bg-brand text-white shadow-sm"
-            : "border-brand/10 bg-white text-body hover:border-brand/30 hover:text-brand"
+            ? "border-brand bg-brand text-white shadow-[0_6px_20px_rgba(90,24,39,0.18)]"
+            : "border-brand/10 bg-white text-body hover:border-brand/30 hover:bg-cream hover:text-brand"
         }
       `}
     >
@@ -243,6 +479,10 @@ function CategoryButton({
     </button>
   );
 }
+
+/* =========================================================
+   Empty State
+========================================================= */
 
 type EmptyStateProps = {
   searchQuery: string;
@@ -292,6 +532,10 @@ function EmptyState({
     </div>
   );
 }
+
+/* =========================================================
+   Icons
+========================================================= */
 
 function SearchIcon() {
   return (
