@@ -2,10 +2,17 @@ import { useMemo, useState } from "react";
 import { menu } from "../../data/menu";
 import { SectionHeading } from "../ui/SectionHeading";
 import { MenuSection } from "./MenuSection";
+import type { MenuCategory } from "../../data/menu";
+import type { SelectedMenuItem } from "../../types/menu";
+import { SelectedMenuSummary } from "./SelectedMenuSummary";
 
 export function Menu() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
+
+  const [selectedItems, setSelectedItems] = useState<
+    SelectedMenuItem[]
+    >([]);
 
   const featuredCategoryIds = [
     "starter",
@@ -15,6 +22,49 @@ export function Menu() {
     "chat-counter-live",
     "ice-cream",
   ];
+
+  const selectedItemKeys = useMemo(
+  () =>
+    new Set(
+      selectedItems.map(
+        (item) =>
+          `${item.categoryId}:${item.item}`,
+      ),
+    ),
+  [selectedItems],
+);
+
+  const toggleItem = (
+  category: MenuCategory,
+  item: string,
+) => {
+  const itemKey = `${category.id}:${item}`;
+
+  setSelectedItems((current) => {
+    const exists = current.some(
+      (selected) =>
+        `${selected.categoryId}:${selected.item}` ===
+        itemKey,
+    );
+
+    if (exists) {
+      return current.filter(
+        (selected) =>
+          `${selected.categoryId}:${selected.item}` !==
+          itemKey,
+      );
+    }
+
+    return [
+      ...current,
+      {
+        categoryId: category.id,
+        categoryTitle: category.title,
+        item,
+      },
+    ];
+  });
+};
 
   const filteredMenu = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -73,6 +123,24 @@ export function Menu() {
           title="A taste for every celebration"
           description="Explore our selection of dishes, live counters, sweets, beverages and more."
         />
+
+        {selectedItems.length > 0 && (
+            <SelectedMenuSummary
+                selectedItems={selectedItems}
+                onRemove={(item) => {
+                setSelectedItems((current) =>
+                    current.filter(
+                    (selected) =>
+                        !(
+                        selected.categoryId === item.categoryId &&
+                        selected.item === item.item
+                        ),
+                    ),
+                );
+                }}
+                onClear={() => setSelectedItems([])}
+            />
+            )}
 
         {/* Search */}
         <div className="mx-auto mt-10 max-w-2xl sm:mt-12">
@@ -204,9 +272,16 @@ export function Menu() {
             {filteredMenu.length > 0 ? (
               filteredMenu.map((category) => (
                 <MenuSection
-                  key={category.id}
-                  category={category}
-                />
+                    key={category.id}
+                    category={category}
+                    selectedItems={new Set(
+                        selectedItems.map(
+                        (item) =>
+                            `${item.categoryId}:${item.item}`,
+                        ),
+                    )}
+                    onToggleItem={toggleItem}
+                    />
               ))
             ) : (
               <EmptyState

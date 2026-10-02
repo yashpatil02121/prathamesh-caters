@@ -3,10 +3,17 @@ import { MenuItem } from "./MenuItem";
 
 type MenuSectionProps = {
   category: MenuCategory;
+  selectedItems: Set<string>;
+  onToggleItem: (
+    category: MenuCategory,
+    item: string,
+  ) => void;
 };
 
 export function MenuSection({
   category,
+  selectedItems,
+  onToggleItem,
 }: MenuSectionProps) {
   return (
     <section
@@ -26,23 +33,32 @@ export function MenuSection({
     >
       {/* Section heading */}
       <div className="mb-5 sm:mb-6">
-        <div className="flex items-center gap-3">
-          <span
-            aria-hidden="true"
-            className="h-2 w-2 rounded-full bg-accent"
-          />
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span
+              aria-hidden="true"
+              className="h-2 w-2 rounded-full bg-accent"
+            />
 
-          <h3
-            className="
-              text-xl
-              font-semibold
-              leading-tight
-              text-brand
-              sm:text-2xl
-            "
-          >
-            {category.title}
-          </h3>
+            <h3
+              className="
+                text-xl
+                font-semibold
+                leading-tight
+                text-brand
+                sm:text-2xl
+              "
+            >
+              {category.title}
+            </h3>
+          </div>
+
+          <span className="shrink-0 text-xs text-muted">
+            {category.items.length}{" "}
+            {category.items.length === 1
+              ? "dish"
+              : "dishes"}
+          </span>
         </div>
 
         <div className="mt-3 h-px w-12 bg-accent/50" />
@@ -50,12 +66,20 @@ export function MenuSection({
 
       {/* Items */}
       <div>
-        {category.items.map((item) => (
-          <MenuItem
-            key={`${category.id}-${item}`}
-            name={item}
-          />
-        ))}
+        {category.items.map((item) => {
+          const itemKey = `${category.id}:${item}`;
+
+          return (
+            <MenuItem
+              key={itemKey}
+              name={item}
+              selected={selectedItems.has(itemKey)}
+              onToggle={() =>
+                onToggleItem(category, item)
+              }
+            />
+          );
+        })}
       </div>
     </section>
   );
