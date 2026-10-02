@@ -271,15 +271,10 @@ export function Menu() {
           <div className="space-y-5 sm:space-y-6">
             {filteredMenu.length > 0 ? (
               filteredMenu.map((category) => (
-                <MenuSection
+               <MenuSection
                     key={category.id}
                     category={category}
-                    selectedItems={new Set(
-                        selectedItems.map(
-                        (item) =>
-                            `${item.categoryId}:${item.item}`,
-                        ),
-                    )}
+                    selectedItems={selectedItemKeys}
                     onToggleItem={toggleItem}
                     />
               ))
