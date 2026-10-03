@@ -124,24 +124,6 @@ export function Menu() {
           description="Explore our selection of dishes, live counters, sweets, beverages and more."
         />
 
-        {selectedItems.length > 0 && (
-            <SelectedMenuSummary
-                selectedItems={selectedItems}
-                onRemove={(item) => {
-                setSelectedItems((current) =>
-                    current.filter(
-                    (selected) =>
-                        !(
-                        selected.categoryId === item.categoryId &&
-                        selected.item === item.item
-                        ),
-                    ),
-                );
-                }}
-                onClear={() => setSelectedItems([])}
-            />
-            )}
-
         {/* Search */}
         <div className="mx-auto mt-10 max-w-2xl sm:mt-12">
           <div className="relative">
@@ -289,6 +271,23 @@ export function Menu() {
             )}
           </div>
         </div>
+                {selectedItems.length > 0 && (
+            <SelectedMenuSummary
+                selectedItems={selectedItems}
+                onRemove={(item) => {
+                setSelectedItems((current) =>
+                    current.filter(
+                    (selected) =>
+                        !(
+                        selected.categoryId === item.categoryId &&
+                        selected.item === item.item
+                        ),
+                    ),
+                );
+                }}
+                onClear={() => setSelectedItems([])}
+            />
+            )}
       </div>
     </section>
   );
