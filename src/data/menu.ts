@@ -32,7 +32,7 @@ export const menu: MenuCategory[] = [
     items: [
       "Hara Bhara Kabab",
       "Cheese Ball",
-      "Cheez Corn Ball",
+      "Cheese Corn Ball",
       "American Roll",
       "Veg Spring Roll",
       "Panner Chilly",
