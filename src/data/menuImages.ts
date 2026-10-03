@@ -29,6 +29,9 @@ import vegMakhanWala from "../assets/menu/veg-makhanwala.webp";
 import steamRice from "../assets/menu/steam-rice.webp";
 import jeeraRice from "../assets/menu/jeera-rice.webp";
 import pulao from "../assets/menu/veg-pulao.webp";
+import peasPulao from "../assets/menu/peas-pulao.webp";
+import kashmiriPulao from "../assets/menu/kashmiri-pulao.webp";
+import masalaPulao from "../assets/menu/masala-rice.webp";
 
 // Sweets
 import gulabJamun from "../assets/menu/gulab-jamun.webp";
@@ -65,7 +68,10 @@ export const menuImages: Record<string, string> = {
     "Steam Rice": steamRice,
     "Jeera Rice": jeeraRice,
     "Veg Pulao": pulao,
-    
+    "Green Peas Pulao": peasPulao,
+    "Kashmiri Pulao": kashmiriPulao,
+    "Masala Rice": masalaPulao,
+
     // Sweets
     "Gulab Jamun": gulabJamun,
 };
