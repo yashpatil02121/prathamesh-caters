@@ -85,14 +85,7 @@ export const menu: MenuCategory[] = [
       "Paneer Palak",
       "Paneer Hyderabadi",
       "Paneer Amritsari",
-    ],
-  },
-
-  {
-    id: "seasonal-main-course",
-    title: "Seasonal Main Course",
-    items: [
-      "Undhiyu",
+      "Undhiyu (Seasonal)",
     ],
   },
 
