@@ -21,6 +21,10 @@ import dryManchurian from "../assets/menu/dry-veg-manchurian.webp";
 import cocktailSamosa from "../assets/menu/cocktail-samosa.webp";
 import potatoFinger from "../assets/menu/potato-finger.webp";
 
+// Main Course
+import vegMakhanWala from "../assets/menu/veg-makhanwala.webp";
+// import vegKadai from "../assets/menu/veg-kadai.webp";
+
 // Sweets
 import gulabJamun from "../assets/menu/gulab-jamun.webp";
 
@@ -36,6 +40,7 @@ export const menuImages: Record<string, string> = {
     "ThumsUp + Sprite + Mirinda": coke,
     
     // Starters
+    "Hara Bhara Kabab": haraBharaKabab,
     "Paneer Tikka": paneerTikka,
     "Cheese Ball": cheeseBall,
     "Cheese Corn Ball": cheeseCornBall,
@@ -47,6 +52,10 @@ export const menuImages: Record<string, string> = {
     "Cocktail Samosa": cocktailSamosa,
     "Potato Finger": potatoFinger,
     
-    "Hara Bhara Kabab": haraBharaKabab,
+    // Main Course
+    "Veg Makhan Wala": vegMakhanWala,
+    // "Veg Kadai": vegKadai,
+
+    // Sweets
     "Gulab Jamun": gulabJamun,
 };
