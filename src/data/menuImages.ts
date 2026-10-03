@@ -25,6 +25,11 @@ import potatoFinger from "../assets/menu/potato-finger.webp";
 import vegMakhanWala from "../assets/menu/veg-makhanwala.webp";
 // import vegKadai from "../assets/menu/veg-kadai.webp";
 
+// Rice
+import steamRice from "../assets/menu/steam-rice.webp";
+import jeeraRice from "../assets/menu/jeera-rice.webp";
+import pulao from "../assets/menu/veg-pulao.webp";
+
 // Sweets
 import gulabJamun from "../assets/menu/gulab-jamun.webp";
 
@@ -56,6 +61,11 @@ export const menuImages: Record<string, string> = {
     "Veg Makhan Wala": vegMakhanWala,
     // "Veg Kadai": vegKadai,
 
+    // Rice
+    "Steam Rice": steamRice,
+    "Jeera Rice": jeeraRice,
+    "Veg Pulao": pulao,
+    
     // Sweets
     "Gulab Jamun": gulabJamun,
 };
