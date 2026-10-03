@@ -1,5 +1,6 @@
 import type { MenuCategory } from "../../data/menu";
 import { MenuItem } from "./MenuItem";
+import { menuImages } from "../../data/menuImages";
 
 type MenuSectionProps = {
   category: MenuCategory;
@@ -64,23 +65,32 @@ export function MenuSection({
         <div className="mt-3 h-px w-12 bg-accent/50" />
       </div>
 
-      {/* Items */}
-      <div>
-        {category.items.map((item) => {
-          const itemKey = `${category.id}:${item}`;
+{/* Items */}
+<div
+  className="
+    grid
+    grid-cols-2
+    gap-3
+    sm:gap-4
+    lg:grid-cols-3
+  "
+>
+  {category.items.map((item) => {
+    const itemKey = `${category.id}:${item}`;
 
-          return (
-            <MenuItem
-              key={itemKey}
-              name={item}
-              selected={selectedItems.has(itemKey)}
-              onToggle={() =>
-                onToggleItem(category, item)
-              }
-            />
-          );
-        })}
-      </div>
+    return (
+      <MenuItem
+        key={itemKey}
+        name={item}
+        image={menuImages[item]}
+        selected={selectedItems.has(itemKey)}
+        onToggle={() =>
+          onToggleItem(category, item)
+        }
+      />
+    );
+  })}
+</div>
     </section>
   );
 }

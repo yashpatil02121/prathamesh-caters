@@ -2,57 +2,95 @@ type MenuItemProps = {
   name: string;
   selected: boolean;
   onToggle: () => void;
+  image?: string;
 };
 
 export function MenuItem({
   name,
   selected,
   onToggle,
+  image,
 }: MenuItemProps) {
   return (
     <button
       type="button"
       onClick={onToggle}
-      className="
+      aria-pressed={selected}
+      className={`
         group
-        flex
+        relative
+        aspect-[4/3]
         w-full
-        items-center
-        justify-between
-        gap-4
-        border-b
-        border-brand/8
-        py-3.5
+        overflow-hidden
+        rounded-xl
+        border
         text-left
-        last:border-b-0
-        sm:py-4
-      "
+        transition-all
+        duration-300
+        sm:rounded-2xl
+        ${
+          selected
+            ? "border-brand ring-2 ring-brand/20"
+            : "border-brand/10 hover:border-brand/30 hover:shadow-md"
+        }
+      `}
     >
-      <span
+      {/* Background image */}
+      {image ? (
+        <img
+          src={image}
+          alt=""
+          aria-hidden="true"
+          className="
+            absolute
+            inset-0
+            h-full
+            w-full
+            object-cover
+            transition-transform
+            duration-500
+            group-hover:scale-105
+          "
+        />
+      ) : (
+        /* Temporary background until images are added */
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-br
+            from-cream
+            via-white
+            to-cream
+          "
+        />
+      )}
+
+      {/* Image overlay */}
+      <div
         className={`
-          text-sm
-          font-medium
-          leading-5
-          transition-colors
-          duration-200
-          sm:text-base
+          absolute
+          inset-0
+          transition-all
+          duration-300
           ${
             selected
-              ? "text-brand"
-              : "text-body group-hover:text-brand"
+              ? "bg-brand/65"
+              : "bg-gradient-to-t from-black/65 via-black/15 to-black/5 group-hover:from-black/70"
           }
         `}
-      >
-        {name}
-      </span>
+      />
 
-      {/* Selection indicator */}
+      {/* Selected indicator */}
       <span
         className={`
+          absolute
+          right-3
+          top-3
+          z-20
           flex
-          h-6
-          w-6
-          shrink-0
+          h-7
+          w-7
           items-center
           justify-center
           rounded-full
@@ -61,13 +99,62 @@ export function MenuItem({
           duration-200
           ${
             selected
-              ? "border-brand bg-brand text-white"
-              : "border-brand/20 bg-white text-transparent group-hover:border-accent"
+              ? "border-white bg-accent text-white"
+              : "border-white/70 bg-white/80 text-transparent backdrop-blur-sm"
           }
         `}
       >
         <CheckIcon />
       </span>
+
+      {/* Item name */}
+      <div
+        className="
+          absolute
+          inset-x-0
+          bottom-0
+          z-10
+          p-3
+          sm:p-4
+        "
+      >
+        <span
+          className={`
+            block
+            text-sm
+            font-semibold
+            leading-tight
+            drop-shadow-sm
+            sm:text-base
+            ${
+              image
+                ? "text-white"
+                : "text-brand"
+            }
+          `}
+        >
+          {name}
+        </span>
+      </div>
+
+      {/* Selected bottom accent */}
+      <span
+        className={`
+          absolute
+          bottom-0
+          left-0
+          z-20
+          h-1
+          bg-accent
+          transition-all
+          duration-300
+          ${
+            selected
+              ? "w-full"
+              : "w-0 group-hover:w-full"
+          }
+        `}
+      />
     </button>
   );
 }
