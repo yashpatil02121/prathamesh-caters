@@ -61,7 +61,7 @@ export const menu: MenuCategory[] = [
       "Aloo Mutter",
       "Aloo Palak Baigan",
       "Tawa Mehfil",
-      "Tawa Sahi",
+      "Tawa Shahi",
       "Bhindi Masala",
       "Bhindi Fry",
       "Baigan Bharta",

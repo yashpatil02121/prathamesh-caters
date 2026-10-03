@@ -23,7 +23,23 @@ import potatoFinger from "../assets/menu/potato-finger.webp";
 
 // Main Course
 import vegMakhanWala from "../assets/menu/veg-makhanwala.webp";
-// import vegKadai from "../assets/menu/veg-kadai.webp";
+import vegKadai from "../assets/menu/veg-kadai.webp";
+import vegKolhapuri from "../assets/menu/veg-kolhapuri.webp";
+import vegHyderabadi from "../assets/menu/veg-hyderabadi.webp";
+import vegKurma from "../assets/menu/veg-kurma.webp";
+import chanaMasala from "../assets/menu/chana-masala.webp";
+import cholePunjabi from "../assets/menu/chole-punjabi.webp";
+import choleMasala from "../assets/menu/chole-masala.webp";
+import dumAloo from "../assets/menu/dum-aloo.webp";
+import mixVegetable from "../assets/menu/mix-veg.webp";
+import alooMutter from "../assets/menu/aloo-mutter.webp";
+import alooPalakBaigan from "../assets/menu/aloo-baigan.webp";
+import tawaMehfil from "../assets/menu/tawa-mehfil.webp";
+import tawaShahi from "../assets/menu/tawa-shahi.webp";
+import bhindiMasala from "../assets/menu/bhindi-masala.webp";
+import bhindiFry from "../assets/menu/bhindi-fry.webp";
+import baiganBharta from "../assets/menu/baigan-bharta.webp";
+import meethiMalaiMatar from "../assets/menu/methi-malai-mutter.webp";
 
 // Rice
 import steamRice from "../assets/menu/steam-rice.webp";
@@ -72,7 +88,23 @@ export const menuImages: Record<string, string> = {
     
     // Main Course
     "Veg Makhan Wala": vegMakhanWala,
-    // "Veg Kadai": vegKadai,
+    "Veg Kadai": vegKadai,
+    "Veg Kolhapuri": vegKolhapuri,
+    "Veg Hyderabadi": vegHyderabadi,
+    "Veg Kurma": vegKurma,
+    "Chana Masala": chanaMasala,
+    "Chole (Punjabi)": cholePunjabi,
+    "Chole Masala": choleMasala,
+    "Dum Aloo": dumAloo,
+    "Mix Vegetable": mixVegetable,
+    "Aloo Mutter": alooMutter,
+    "Aloo Palak Baigan": alooPalakBaigan,
+    "Tawa Mehfil": tawaMehfil,
+    "Tawa Shahi": tawaShahi,
+    "Bhindi Masala": bhindiMasala,
+    "Bhindi Fry": bhindiFry,
+    "Baigan Bharta": baiganBharta,
+    "Methi Mutter Malai": meethiMalaiMatar,
 
     // Rice
     "Steam Rice": steamRice,
