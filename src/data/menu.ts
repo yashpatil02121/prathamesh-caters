@@ -151,15 +151,8 @@ export const menu: MenuCategory[] = [
       "Kala Jamun",
       "Jalebi",
       "Jalabi With Rabadi",
-    ],
-  },
-
-  {
-    id: "seasonal-sweet",
-    title: "Seasonal Sweet",
-    items: [
-      "Aamras",
-      "Gajar Halwa",
+      "Aamras (Seasonal)",
+      "Gajar Halwa (Seasonal)",
     ],
   },
 
@@ -171,6 +164,20 @@ export const menu: MenuCategory[] = [
       "Rajbhog",
       "Rasgulla",
       "Rasmalai",
+    ],
+  },
+  
+  {
+    id: "sweet-varieties",
+    title: "Sweet (Varieties)",
+    items: [
+      "Basundi Kesar",
+      "Basundi Angoori",
+      "Basundi Sitafal (Seasonal)",
+      "Basundi Dry Fruits",
+      "Basundi Mango",
+      "Rasmalai",
+      "Rabadi",
     ],
   },
 
@@ -247,20 +254,6 @@ export const menu: MenuCategory[] = [
       "Cheese Pizza",
       "Paneer Pizza",
       "Garlic Bread",
-    ],
-  },
-
-  {
-    id: "sweet-varieties",
-    title: "Sweet (Varieties)",
-    items: [
-      "Basundi Kesar",
-      "Basundi Angoori",
-      "Basundi Sitafal (Seasonal)",
-      "Basundi Dry Fruits",
-      "Basundi Mango",
-      "Rasmalai",
-      "Rabadi",
     ],
   },
 

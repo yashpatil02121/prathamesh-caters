@@ -11,6 +11,7 @@ import coke from "../assets/menu/coke-juice.webp";
 // Starter
 import paneerTikka from "../assets/menu/paneer-tikka.webp";
 import haraBharaKabab from "../assets/menu/hara-bhara-kabab.webp";
+import cheeseBall from "../assets/menu/cheeseball-starter.webp";
 
 // Sweets
 import gulabJamun from "../assets/menu/gulab-jamun.webp";
@@ -26,6 +27,8 @@ export const menuImages: Record<string, string> = {
     "ThumsUp + Sprite + Mirinda": coke,
     
     "Paneer Tikka": paneerTikka,
+    "Cheese Ball": cheeseBall,
+    
     "Hara Bhara Kabab": haraBharaKabab,
     "Gulab Jamun": gulabJamun,
 };
