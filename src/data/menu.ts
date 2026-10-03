@@ -150,7 +150,7 @@ export const menu: MenuCategory[] = [
       "Pineapple Halwa",
       "Kala Jamun",
       "Jalebi",
-      "Jalabi With Rabadi",
+      "Jalebi With Rabadi",
       "Aamras (Seasonal)",
       "Gajar Halwa (Seasonal)",
     ],

@@ -35,6 +35,16 @@ import masalaPulao from "../assets/menu/masala-rice.webp";
 
 // Sweets
 import gulabJamun from "../assets/menu/gulab-jamun.webp";
+import basundi from "../assets/menu/basundi.webp";
+import shrikhand from "../assets/menu/shrikhand.webp";
+import mungDaalHalva from "../assets/menu/mung-daal-halva.webp";
+import dudhiHalwa from "../assets/menu/dudhi-halwa.webp";
+import pipeappleHalwa from "../assets/menu/pineapple-halwa.webp";
+import kalaJamun from "../assets/menu/kala-jamun.webp";
+import jalebi from "../assets/menu/jalebi.webp";
+import jalebiWithRabadi from "../assets/menu/rabdi-with-jalebi.webp";
+import aamras from "../assets/menu/aamras.webp";
+import gajarHalwa from "../assets/menu/gajar-halwaa.webp";
 
 export const menuImages: Record<string, string> = {
     // Juices
@@ -74,4 +84,14 @@ export const menuImages: Record<string, string> = {
 
     // Sweets
     "Gulab Jamun": gulabJamun,
+    "Basundi": basundi,
+    "Shrikhand": shrikhand,
+    "Mung Dal Halwa": mungDaalHalva,
+    "Dudhi Halwa": dudhiHalwa,
+    "Pineapple Halwa": pipeappleHalwa,
+    "Kala Jamun": kalaJamun,
+    "Jalebi": jalebi,
+    "Jalebi With Rabadi": jalebiWithRabadi,
+    "Aamras (Seasonal)": aamras,
+    "Gajar Halwa (Seasonal)": gajarHalwa,
 };
