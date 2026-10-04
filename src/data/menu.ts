@@ -188,7 +188,7 @@ export const menu: MenuCategory[] = [
       "Sev Puri",
       "Bhel",
       "Delhi Chat",
-      "Dahi Papadi Chat",
+      "Dahi Papdi Chat",
       "Aloo Tikki",
       "Kachori Chat",
     ],

@@ -118,6 +118,15 @@ import basundiDryFruits from "../assets/menu/basundi-dry-fruit.webp";
 import basundiMango from "../assets/menu/basundi-mango.webp";
 import rabadi from "../assets/menu/rabadi.webp";
 
+// Chat
+import paniPuri from "../assets/menu/pani-puri.webp";
+import sevPuri from "../assets/menu/sev-puri.webp";
+import bhel from "../assets/menu/bhel.webp";
+import delhiChat from "../assets/menu/delhi-chat.webp";
+import dahiPapdiChat from "../assets/menu/dahi-papdi-chat.webp";
+import alooTikki from "../assets/menu/aloo-tikki.webp";
+import kachoriChat from "../assets/menu/kachori-chat.webp";
+
 export const menuImages: Record<string, string> = {
     // Juices
     "Water Melon": waterMelon,
@@ -237,4 +246,13 @@ export const menuImages: Record<string, string> = {
     "Basundi Dry Fruits": basundiDryFruits,
     "Basundi Mango": basundiMango,
     "Rabadi": rabadi,
+
+    // Chat
+    "Pani Puri": paniPuri,
+    "Sev Puri": sevPuri,
+    "Bhel": bhel,
+    "Delhi Chat": delhiChat,
+    "Dahi Papdi Chat": dahiPapdiChat,
+    "Aloo Tikki": alooTikki,
+    "Kachori Chat": kachoriChat,
 };
