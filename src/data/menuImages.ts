@@ -143,6 +143,19 @@ import macaroniSalad from "../assets/menu/macroni-salad.webp";
 import dahiVada from "../assets/menu/dahi-vada.webp";
 import dahiBhalle from "../assets/menu/dahi-bhalle.webp";
 
+// Raita
+import boondiRaita from "../assets/menu/boondi-raita.webp";
+import cucumberRaita from "../assets/menu/cucumber-raita.webp";
+import pineappleRaita from "../assets/menu/pineapple-raita.webp";
+import onionRaita from "../assets/menu/onion-raita.webp";
+import plainCurd from "../assets/menu/plain-curd.webp";
+
+// Chinese
+import vegFriedRice from "../assets/menu/fried-rice.webp";
+import noodles from "../assets/menu/noodles.webp";
+import soup from "../assets/menu/soup.webp";
+import manchurianSoup from "../assets/menu/manchurian-soup.webp";
+
 export const menuImages: Record<string, string> = {
     // Juices
     "Water Melon": waterMelon,
@@ -287,4 +300,17 @@ export const menuImages: Record<string, string> = {
     "Macroni Salad": macaroniSalad,
     "Dahi Vada": dahiVada,
     "Dahi Bhalle": dahiBhalle,
+    
+    // Raita
+    "Boondi Raita": boondiRaita,
+    "Cucumber Raita": cucumberRaita,
+    "Pineapple Raita": pineappleRaita,
+    "Onion Raita": onionRaita,
+    "Plain Curd": plainCurd,
+
+    // Chinese
+    "Veg Fried Rice": vegFriedRice,
+    "Veg Noodles": noodles,
+    "Veg Soup": soup,
+    "Veg Manchurian Soup": manchurianSoup,
 };
