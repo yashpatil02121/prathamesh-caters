@@ -176,7 +176,6 @@ export const menu: MenuCategory[] = [
       "Basundi Sitafal (Seasonal)",
       "Basundi Dry Fruits",
       "Basundi Mango",
-      "Rasmalai",
       "Rabadi",
     ],
   },

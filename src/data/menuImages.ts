@@ -104,6 +104,12 @@ import jalebiWithRabadi from "../assets/menu/rabdi-with-jalebi.webp";
 import aamras from "../assets/menu/aamras.webp";
 import gajarHalwa from "../assets/menu/gajar-halwaa.webp";
 
+// Bengali Sweets
+import malaiSandwich from "../assets/menu/malai-sandwich.webp";
+import rajbhog from "../assets/menu/rajbhog.webp";
+import rasgulla from "../assets/menu/rasgulla.webp";
+import rasmalai from "../assets/menu/rasmalai.webp";
+
 export const menuImages: Record<string, string> = {
     // Juices
     "Water Melon": waterMelon,
@@ -209,4 +215,10 @@ export const menuImages: Record<string, string> = {
     "Jalebi With Rabadi": jalebiWithRabadi,
     "Aamras (Seasonal)": aamras,
     "Gajar Halwa (Seasonal)": gajarHalwa,
+
+    // Bengali Sweets
+    "Malai Sandwich": malaiSandwich,
+    "Rajbhog": rajbhog,
+    "Rasgulla": rasgulla,
+    "Rasmalai": rasmalai,
 };
