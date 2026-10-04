@@ -120,8 +120,8 @@ export function Menu() {
         {/* Section heading */}
         <SectionHeading
           eyebrow="Our Menu"
-          title="A taste for every celebration"
-          description="Explore our selection of dishes, live counters, sweets, beverages and more."
+          title="Swad Jo Yaad Rahe"
+          description="From delicious starters and rich main courses to live counters and traditional sweets, discover flavours made for every celebration."
         />
 
         {/* Search */}

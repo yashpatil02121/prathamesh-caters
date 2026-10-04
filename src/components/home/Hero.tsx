@@ -121,7 +121,7 @@ export function Hero() {
                 sm:top-8
               "
             >
-              Catering & Decoration
+              Sajti Shaamein. Mehakti Daawatein.
             </div>
 
 
@@ -140,8 +140,8 @@ export function Hero() {
                 sm:right-7
               "
             >
-              <span className="text-xs uppercase tracking-[0.18em] text-white/60">
-                Since your celebration
+              <span className="text-xs uppercase tracking-[0.18em] text-white/80">
+                Since 1990
               </span>
 
             </div>
@@ -179,10 +179,10 @@ export function Hero() {
                 lg:text-7xl
               "
             >
-              Beautiful
-              <span className="block text-accent">Celebrations.</span>
-              <span className="block">Memorable</span>
-              <span className="block">Flavours.</span>
+              Har Khaas
+              <span className="block text-accent">Mauke Ki,</span>
+              {/* <span className="block">Memorable</span> */}
+              <span className="block">Khaas Taiyaari...</span>
             </h1>
 
             {/* Description */}
@@ -197,8 +197,7 @@ export function Hero() {
                 sm:leading-7
               "
             >
-              Premium catering and beautiful event experiences crafted for
-              weddings, celebrations and special occasions.
+              From the menu to the décor, we take care of the details that make your celebration truly yours.
             </p>
 
             {/* CTA */}

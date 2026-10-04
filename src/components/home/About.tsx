@@ -4,21 +4,21 @@ import { SectionHeading } from "../ui/SectionHeading";
 const highlights = [
   {
     number: "01",
-    title: "Thoughtful Catering",
+    title: "Daawat Ka Swad",
     description:
-      "A wide selection of dishes and menu options for celebrations, gatherings and special occasions.",
+      "Thoughtfully prepared menus with plenty of choices for every celebration and every guest.",
   },
   {
     number: "02",
-    title: "Beautiful Decoration",
+    title: "Sajawat Ka Andaaz",
     description:
-      "Event spaces designed with attention to atmosphere, presentation and the occasion.",
+      "Décor designed around your occasion, from elegant and traditional to vibrant and contemporary.",
   },
   {
     number: "03",
-    title: "Complete Experience",
+    title: "Mehmaan-Nawazi Ka Ehsaas",
     description:
-      "Catering and decoration brought together to create a memorable celebration for your guests.",
+      "Because a memorable celebration isn't just about how it looks or tastes, it's about how your guests feel.",
   },
 ];
 
@@ -36,8 +36,8 @@ export function About() {
             <SectionHeading
               align="left"
               eyebrow="About Us"
-              title="We bring food, beauty and celebration together."
-              description="Prathamesh Decorators & Caters brings together catering and event decoration to help create beautiful celebrations with memorable food and experiences."
+              title="Aapki Khushiyan. Hamari Zimmedari."
+              description="Since 1990, Prathamesh Decorators & Caters has been bringing together delicious food, beautiful décor and warm hospitality for celebrations that bring families and loved ones together."
             />
 
             <div className="mt-8 sm:mt-10">

@@ -3,6 +3,7 @@ import { Navbar } from "./components/layout/Navbar";
 import { Hero } from "./components/home/Hero";
 import { Services } from "./components/home/Services";
 import { Menu } from "./components/home/Menu";
+import { About } from "./components/home/About";
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
       <main>
         <Hero />
 
+        <Menu />
+
         <Services />
 
-        <Menu />
+        <About />
       </main>
 
       <Footer />
