@@ -156,6 +156,14 @@ import noodles from "../assets/menu/noodles.webp";
 import soup from "../assets/menu/soup.webp";
 import manchurianSoup from "../assets/menu/manchurian-soup.webp";
 
+// Pizza Pasta
+import redSaucePasta from "../assets/menu/red-pasta.webp";
+import whiteSaucePasta from "../assets/menu/white-pasta.webp";
+import vegPizza from "../assets/menu/veg-pizza.webp";
+import cheesePizza from "../assets/menu/cheese-pizza.webp";
+import paneerPizza from "../assets/menu/paneer-pizza.webp";
+import garlicBread from "../assets/menu/garlic-bread.webp";
+
 export const menuImages: Record<string, string> = {
     // Juices
     "Water Melon": waterMelon,
@@ -313,4 +321,12 @@ export const menuImages: Record<string, string> = {
     "Veg Noodles": noodles,
     "Veg Soup": soup,
     "Veg Manchurian Soup": manchurianSoup,
+
+    // Pizza Pasta
+    "Red Sauce Pasta": redSaucePasta,
+    "White Sauce Pasta": whiteSaucePasta,
+    "Veg Pizza": vegPizza,
+    "Cheese Pizza": cheesePizza,
+    "Paneer Pizza": paneerPizza,
+    "Garlic Bread": garlicBread,
 };
