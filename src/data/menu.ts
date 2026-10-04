@@ -129,7 +129,7 @@ export const menu: MenuCategory[] = [
       "Naan",
       "Baby Paratha",
       "Methi Paratha",
-      "Laccha Paratha",
+      "Lachha Paratha",
       "Puri",
       "Palak Puri",
       "Methi Puri",

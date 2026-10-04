@@ -74,6 +74,23 @@ import marwadiKadi from "../assets/menu/marwadi-kadi.webp";
 import kadiPakoda from "../assets/menu/kadi-pakoda.webp";
 import panchratnaDal from "../assets/menu/panchratan-dal.webp";
 
+// Indian Breads
+import tandooriRoti from "../assets/menu/tandoori-roti.webp";
+import rumaliRoti from "../assets/menu/rumali-roti.webp";
+import missiRoti from "../assets/menu/missi-roti.webp";
+import masalaRoti from "../assets/menu/masala-roti.webp";
+import kulcha from "../assets/menu/kulcha.webp";
+import naan from "../assets/menu/naan.webp";
+import babyParatha from "../assets/menu/baby-paratha.webp";
+import methiParatha from "../assets/menu/methi-paratha.webp";
+import lachhaParatha from "../assets/menu/lachha-paratha.webp";
+import puri from "../assets/menu/puri.webp";
+import palakPuri from "../assets/menu/palak-puri.webp";
+import methiPuri from "../assets/menu/methi-puri.webp";
+import chapati from "../assets/menu/chapati.webp";
+import bhature from "../assets/menu/bhature.webp";
+
+
 // Sweets
 import gulabJamun from "../assets/menu/gulab-jamun.webp";
 import basundi from "../assets/menu/basundi.webp";
@@ -163,6 +180,22 @@ export const menuImages: Record<string, string> = {
     "Marwadi Kadi": marwadiKadi,
     "Kadi Pakoda": kadiPakoda,
     "Panchratna Dal": panchratnaDal,
+
+    // Indian Breads
+    "Tandoori Roti": tandooriRoti,
+    "Rumali Roti": rumaliRoti,
+    "Missi Roti": missiRoti,
+    "Masala Roti": masalaRoti,
+    "Kulcha": kulcha,
+    "Naan": naan,
+    "Baby Paratha": babyParatha,
+    "Methi Paratha": methiParatha,
+    "Lachha Paratha": lachhaParatha,
+    "Puri": puri,
+    "Palak Puri": palakPuri,
+    "Methi Puri": methiPuri,
+    "Tawa Roti (Chapati)": chapati,
+    "Bhature": bhature,
 
     // Sweets
     "Gulab Jamun": gulabJamun,
