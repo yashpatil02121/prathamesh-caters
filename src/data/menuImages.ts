@@ -110,6 +110,14 @@ import rajbhog from "../assets/menu/rajbhog.webp";
 import rasgulla from "../assets/menu/rasgulla.webp";
 import rasmalai from "../assets/menu/rasmalai.webp";
 
+// Sweet Varieties
+import basundiKesar from "../assets/menu/basundi-kesar.webp";
+import basundiAngoori from "../assets/menu/basundi-angoori.webp";
+import basundiSitafal from "../assets/menu/basundi-sitafal.webp";
+import basundiDryFruits from "../assets/menu/basundi-dry-fruit.webp";
+import basundiMango from "../assets/menu/basundi-mango.webp";
+import rabadi from "../assets/menu/rabadi.webp";
+
 export const menuImages: Record<string, string> = {
     // Juices
     "Water Melon": waterMelon,
@@ -221,4 +229,12 @@ export const menuImages: Record<string, string> = {
     "Rajbhog": rajbhog,
     "Rasgulla": rasgulla,
     "Rasmalai": rasmalai,
+
+    // Sweet Varieties
+    "Basundi Kesar": basundiKesar,
+    "Basundi Angoori": basundiAngoori,
+    "Basundi Sitafal (Seasonal)": basundiSitafal,
+    "Basundi Dry Fruits": basundiDryFruits,
+    "Basundi Mango": basundiMango,
+    "Rabadi": rabadi,
 };
