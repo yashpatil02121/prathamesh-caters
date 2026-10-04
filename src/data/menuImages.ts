@@ -41,6 +41,21 @@ import bhindiFry from "../assets/menu/bhindi-fry.webp";
 import baiganBharta from "../assets/menu/baigan-bharta.webp";
 import meethiMalaiMatar from "../assets/menu/methi-malai-mutter.webp";
 
+// Paneer Main Course
+import shahiPaneer from "../assets/menu/shahi-paneer.webp";
+import paneerTikkaMasala from "../assets/menu/paneer-tikka-masala.webp";
+import paneerMutter from "../assets/menu/paneer-mutter.webp";
+import paneerMakhanWala from "../assets/menu/paneer-makhanwala.webp";
+import paneerPasanda from "../assets/menu/paneer-pasanda.webp";
+import paneerMakhani from "../assets/menu/paneer-makhani.webp";
+import paneerKofta from "../assets/menu/paneer-kofta.webp";
+import paneerButterMasala from "../assets/menu/paneer-butter-masala.webp";
+import paneerMethiMalai from "../assets/menu/methi-malai-paneer.webp";
+import paneerPalak from "../assets/menu/palak-paneer.webp";
+import paneerHyderabadi from "../assets/menu/paneer-hyderabadi.webp";
+import paneerAmritsari from "../assets/menu/amritsari-paneer.webp";
+import undhiyu from "../assets/menu/undhiyu.webp";
+
 // Rice
 import steamRice from "../assets/menu/steam-rice.webp";
 import jeeraRice from "../assets/menu/jeera-rice.webp";
@@ -105,6 +120,21 @@ export const menuImages: Record<string, string> = {
     "Bhindi Fry": bhindiFry,
     "Baigan Bharta": baiganBharta,
     "Methi Mutter Malai": meethiMalaiMatar,
+
+    // Paneer Main Course
+    "Shahi Paneer": shahiPaneer,
+    "Paneer Tikka Masala": paneerTikkaMasala,
+    "Paneer Mutter": paneerMutter,
+    "Paneer Makhan Wala": paneerMakhanWala,
+    "Paneer Pasanda": paneerPasanda,
+    "Paneer Makhani": paneerMakhani,
+    "Paneer Kofta": paneerKofta,
+    "Paneer Butter Masala": paneerButterMasala,
+    "Paneer Methi Malai": paneerMethiMalai,
+    "Paneer Palak": paneerPalak,
+    "Paneer Hyderabadi": paneerHyderabadi,
+    "Paneer Amritsari": paneerAmritsari,
+    "Undhiyu (Seasonal)": undhiyu,
 
     // Rice
     "Steam Rice": steamRice,
