@@ -15,9 +15,9 @@ export const menu: MenuCategory[] = [
     id: "fresh-juice-soft-drink",
     title: "Fresh Juice + Soft Drink",
     items: [
-      "Water Melon",
-      "Pineapple",
-      "Guava",
+      "Watermelon Juice",
+      "Pineapple Juice",
+      "Guava Juice",
       "Pineapple + Guava + Pudina",
       "Mango Shake (Seasonal)",
       "Mocktail",

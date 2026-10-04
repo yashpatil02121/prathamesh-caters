@@ -164,11 +164,22 @@ import cheesePizza from "../assets/menu/cheese-pizza.webp";
 import paneerPizza from "../assets/menu/paneer-pizza.webp";
 import garlicBread from "../assets/menu/garlic-bread.webp";
 
+// Fruit Counter
+import pineappleFruit from "../assets/menu/pineapple.webp";
+import watermelon from "../assets/menu/watermelon.webp";
+import papaya from "../assets/menu/papaya.webp";
+import grapes from "../assets/menu/grapes.webp";
+import guavaFruit from "../assets/menu/guava.webp";
+
+// Pav Bhaji
+import pavBhaji from "../assets/menu/pav-bhaji.webp";
+import cheesePavBhaji from "../assets/menu/cheese-pav-bhaji.webp";
+
 export const menuImages: Record<string, string> = {
     // Juices
-    "Water Melon": waterMelon,
-    "Pineapple": pineapple,
-    "Guava": guava,
+    "Watermelon Juice": waterMelon,
+    "Pineapple Juice": pineapple,
+    "Guava Juice": guava,
     "Mango Shake (Seasonal)": mango,
     "Mocktail": mocktail,
     "Strawberry Shake": strawberry,
@@ -329,4 +340,15 @@ export const menuImages: Record<string, string> = {
     "Cheese Pizza": cheesePizza,
     "Paneer Pizza": paneerPizza,
     "Garlic Bread": garlicBread,
+
+    // Fruit Counter
+    "Pineapple": pineappleFruit,
+    "Watermelon": watermelon,
+    "Papaya": papaya,
+    "Grapes": grapes,
+    "Guava": guavaFruit,
+
+    // Pav Bhaji
+    "Pav Bhaji": pavBhaji,
+    "Cheese Pav Bhaji": cheesePavBhaji,
 };
