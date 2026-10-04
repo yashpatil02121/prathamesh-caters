@@ -64,6 +64,16 @@ import peasPulao from "../assets/menu/peas-pulao.webp";
 import kashmiriPulao from "../assets/menu/kashmiri-pulao.webp";
 import masalaPulao from "../assets/menu/masala-rice.webp";
 
+// Dal
+import dalFry from "../assets/menu/dal-fry.webp";
+import dalTadka from "../assets/menu/dal-tadka.webp";
+import dalMakhani from "../assets/menu/dal-makhani.webp";
+import dalPalak from "../assets/menu/dal-palak.webp";
+import gujratiKadi from "../assets/menu/gujrati-kadi.webp";
+import marwadiKadi from "../assets/menu/marwadi-kadi.webp";
+import kadiPakoda from "../assets/menu/kadi-pakoda.webp";
+import panchratnaDal from "../assets/menu/panchratan-dal.webp";
+
 // Sweets
 import gulabJamun from "../assets/menu/gulab-jamun.webp";
 import basundi from "../assets/menu/basundi.webp";
@@ -143,6 +153,16 @@ export const menuImages: Record<string, string> = {
     "Green Peas Pulao": peasPulao,
     "Kashmiri Pulao": kashmiriPulao,
     "Masala Rice": masalaPulao,
+
+    // Dal
+    "Dal Fry": dalFry,
+    "Dal Tadka": dalTadka,
+    "Dal Makhani": dalMakhani,
+    "Dal Palak": dalPalak,
+    "Gujarati Kadi": gujratiKadi,
+    "Marwadi Kadi": marwadiKadi,
+    "Kadi Pakoda": kadiPakoda,
+    "Panchratna Dal": panchratnaDal,
 
     // Sweets
     "Gulab Jamun": gulabJamun,
