@@ -127,6 +127,14 @@ import dahiPapdiChat from "../assets/menu/dahi-papdi-chat.webp";
 import alooTikki from "../assets/menu/aloo-tikki.webp";
 import kachoriChat from "../assets/menu/kachori-chat.webp";
 
+// Dosa
+import sadaDosa from "../assets/menu/sada-dosa.webp";
+import masalaDosa from "../assets/menu/masala-dosa.webp";
+import paneerDosa from "../assets/menu/paneer-dosa.webp";
+import miniDosa from "../assets/menu/mini-dosa.webp";
+import miniUthappa from "../assets/menu/mini-uthappa.webp";
+import onionUthappa from "../assets/menu/onion-uthappa.webp";
+
 export const menuImages: Record<string, string> = {
     // Juices
     "Water Melon": waterMelon,
@@ -255,4 +263,12 @@ export const menuImages: Record<string, string> = {
     "Dahi Papdi Chat": dahiPapdiChat,
     "Aloo Tikki": alooTikki,
     "Kachori Chat": kachoriChat,
+
+    // Dosa
+    "Sada Dosa": sadaDosa,
+    "Masala Dosa": masalaDosa,
+    "Paneer Dosa": paneerDosa,
+    "Mini Dosa": miniDosa,
+    "Mini Uthappa": miniUthappa,
+    "Onion Uthappa": onionUthappa,
 };
