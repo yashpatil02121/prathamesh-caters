@@ -4,7 +4,6 @@ import { startEnquiry } from "../../utils/enquiry";
 import {
   buildMenuMessage,
   groupSelectedItems,
-  hasWhatsApp,
   whatsappLink,
 } from "../../utils/whatsapp";
 import {
@@ -74,7 +73,7 @@ export function SelectedMenuSummary() {
                       type="button"
                       onClick={() => removeItem(selected)}
                       aria-label={`Remove ${selected.item}`}
-                      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-cream hover:text-brand"
+                      className="-mr-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:bg-cream hover:text-brand"
                     >
                       <CloseIcon size={16} />
                     </button>
@@ -86,33 +85,32 @@ export function SelectedMenuSummary() {
         </div>
       </div>
 
-      {/* Actions */}
-      <div className="grid gap-3 border-t border-brand/10 bg-page p-4 sm:grid-cols-3 sm:p-5">
+      {/* Actions — WhatsApp first and full width on phones */}
+      <div className="grid grid-cols-2 gap-3 border-t border-brand/10 bg-page p-4 sm:grid-cols-3 sm:p-5">
+        <a
+          href={whatsappLink(buildMenuMessage(selectedItems))}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="col-span-2 flex h-12 items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white transition-all hover:bg-[#1da851] hover:shadow-lg sm:order-2 sm:col-span-1"
+        >
+          <WhatsAppIcon size={18} />
+          Send on WhatsApp
+        </a>
+
         <button
           type="button"
           onClick={() => generateMenuPdf(selectedItems)}
-          className="flex h-12 items-center justify-center gap-2 rounded-full border border-brand/20 bg-white px-5 text-sm font-semibold text-brand transition-all hover:border-brand hover:bg-brand hover:text-white"
+          className="flex h-12 items-center justify-center gap-2 rounded-full border border-brand/20 bg-white px-4 text-sm font-semibold text-brand transition-all hover:border-brand hover:bg-brand hover:text-white sm:order-1"
         >
           <PrintIcon size={18} />
-          Download PDF
+          <span className="sm:hidden">PDF</span>
+          <span className="hidden sm:inline">Download PDF</span>
         </button>
-
-        {hasWhatsApp() && (
-          <a
-            href={whatsappLink(buildMenuMessage(selectedItems))}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex h-12 items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 text-sm font-semibold text-white transition-all hover:bg-[#1da851] hover:shadow-lg"
-          >
-            <WhatsAppIcon size={18} />
-            Share on WhatsApp
-          </a>
-        )}
 
         <button
           type="button"
           onClick={() => startEnquiry()}
-          className={`flex h-12 items-center justify-center gap-2 rounded-full bg-accent px-5 text-sm font-semibold text-white transition-all hover:bg-brand hover:shadow-lg ${hasWhatsApp() ? "" : "sm:col-span-2"}`}
+          className="flex h-12 items-center justify-center gap-2 rounded-full bg-accent px-4 text-sm font-semibold text-white transition-all hover:bg-brand hover:shadow-lg sm:order-3"
         >
           Get a Quote
           <ArrowRightIcon size={18} />

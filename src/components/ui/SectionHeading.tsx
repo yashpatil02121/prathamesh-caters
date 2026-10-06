@@ -31,7 +31,7 @@ export function SectionHeading({
       <h2
         className={`
           font-display
-          text-3xl
+          text-[1.85rem]
           font-semibold
           leading-[1.15]
           sm:text-4xl
@@ -45,9 +45,10 @@ export function SectionHeading({
       {description && (
         <p
           className={`
-            mt-4
-            text-base
+            mt-3
+            text-[15px]
             leading-7
+            sm:mt-4
             sm:text-lg
             ${isDark ? "text-white/70" : "text-muted"}
           `}

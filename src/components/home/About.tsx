@@ -31,10 +31,10 @@ export function About() {
   return (
     <section
       id="about"
-      className="overflow-hidden bg-sand/50 py-20 sm:py-24 lg:py-32"
+      className="overflow-hidden bg-sand/50 py-16 sm:py-24 lg:py-32"
     >
       <div className="container-custom">
-        <div className="grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
+        <div className="grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-20">
           {/* Image collage */}
           <Reveal className="relative mx-auto w-full max-w-lg lg:max-w-none">
             <div className="grid grid-cols-5 grid-rows-6 gap-3 sm:gap-4">
@@ -82,7 +82,7 @@ export function About() {
               />
             </Reveal>
 
-            <div className="mt-10 space-y-3 sm:space-y-4">
+            <div className="mt-8 space-y-3 sm:mt-10 sm:space-y-4">
               {highlights.map((item, index) => (
                 <Reveal
                   key={item.number}
@@ -93,7 +93,7 @@ export function About() {
               ))}
             </div>
 
-            <Reveal className="mt-10">
+            <Reveal className="mt-8 sm:mt-10">
               <Button href="#contact">Plan Your Event</Button>
             </Reveal>
           </div>

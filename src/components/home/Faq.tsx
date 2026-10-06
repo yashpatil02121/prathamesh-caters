@@ -43,10 +43,10 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="bg-page py-20 sm:py-24 lg:py-32"
+      className="bg-page py-16 sm:py-24 lg:py-32"
     >
       <div className="container-custom">
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <Reveal>
             <SectionHeading
               align="left"
@@ -66,7 +66,7 @@ export function Faq() {
                   name="faq"
                   className="group rounded-2xl border border-brand/10 bg-white transition-shadow open:shadow-[0_12px_35px_rgba(90,24,39,0.07)]"
                 >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-left font-semibold text-brand sm:p-6 [&::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4 text-left text-[15px] font-semibold text-brand sm:p-6 sm:text-base [&::-webkit-details-marker]:hidden">
                     {faq.question}
 
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sand text-brand transition-all duration-300 group-open:rotate-45 group-open:bg-accent group-open:text-white">
@@ -74,7 +74,7 @@ export function Faq() {
                     </span>
                   </summary>
 
-                  <p className="-mt-1 px-5 pb-6 text-sm leading-7 text-muted sm:px-6">
+                  <p className="-mt-1 px-4 pb-5 text-sm leading-7 text-muted sm:px-6 sm:pb-6">
                     {faq.answer}
                   </p>
                 </details>

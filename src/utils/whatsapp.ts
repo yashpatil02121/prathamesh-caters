@@ -1,20 +1,30 @@
-import { business } from "../config/business";
+import { business, primaryContact } from "../config/business";
 import type { SelectedMenuItem } from "../types/menu";
 
-export function hasWhatsApp() {
-  return business.contact.whatsapp.length > 0;
+function tenDigits(phone: string) {
+  return phone.replace(/\D/g, "").slice(-10);
 }
 
-export function whatsappLink(message?: string) {
-  const base = `https://wa.me/${business.contact.whatsapp}`;
+/** "8828064702" → "+91 88280 64702" */
+export function formatPhone(phone: string = primaryContact.phone) {
+  const digits = tenDigits(phone);
+
+  return `+91 ${digits.slice(0, 5)} ${digits.slice(5)}`;
+}
+
+export function whatsappLink(
+  message?: string,
+  phone: string = primaryContact.phone,
+) {
+  const base = `https://wa.me/91${tenDigits(phone)}`;
 
   return message
     ? `${base}?text=${encodeURIComponent(message)}`
     : base;
 }
 
-export function phoneLink() {
-  return `tel:${business.contact.phone.replace(/[^\d+]/g, "")}`;
+export function phoneLink(phone: string = primaryContact.phone) {
+  return `tel:+91${tenDigits(phone)}`;
 }
 
 export function groupSelectedItems(

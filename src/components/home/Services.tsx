@@ -7,7 +7,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="bg-page py-20 sm:py-24 lg:py-32"
+      className="bg-page py-16 sm:py-24 lg:py-32"
     >
       <div className="container-custom">
         {/* Section heading */}
@@ -20,7 +20,7 @@ export function Services() {
         </Reveal>
 
         {/* Service cards */}
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-5 lg:mt-16 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-5 lg:mt-16 lg:grid-cols-4">
           {services.map((service, index) => (
             <Reveal
               key={service.number}

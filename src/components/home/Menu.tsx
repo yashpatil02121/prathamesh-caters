@@ -73,7 +73,7 @@ export function Menu() {
   return (
     <section
       id="menu"
-      className="relative bg-sand/50 py-20 sm:py-24 lg:py-32"
+      className="relative bg-sand/50 py-16 sm:py-24 lg:py-32"
     >
       <div className="container-custom">
         {/* Section heading */}
@@ -87,7 +87,7 @@ export function Menu() {
 
         {/* How the menu builder works */}
         <Reveal delay={100}>
-          <ol className="mx-auto mt-8 flex max-w-2xl flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-muted sm:text-sm">
+          <ol className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-medium text-muted sm:mt-8 sm:gap-x-5 sm:text-sm">
             {["Browse dishes", "Tap to select", "Download or share"].map(
               (step, index) => (
                 <li
@@ -106,7 +106,7 @@ export function Menu() {
 
         {/* Search */}
         <Reveal delay={150}>
-          <div className="mx-auto mt-8 max-w-2xl sm:mt-10">
+          <div className="mx-auto mt-6 max-w-2xl sm:mt-10">
             <div className="relative">
               <span className="pointer-events-none absolute left-5 top-1/2 z-10 -translate-y-1/2 text-muted">
                 <SearchIcon />
@@ -118,7 +118,7 @@ export function Menu() {
                 onChange={(event) => setSearchQuery(event.target.value)}
                 placeholder="Search dishes, e.g. paneer, dosa, kulfi…"
                 aria-label="Search dishes"
-                className="h-14 w-full rounded-full border border-brand/10 bg-white pl-13 pr-12 text-sm text-body shadow-[0_8px_30px_rgba(90,24,39,0.06)] outline-none transition-all placeholder:text-muted/70 focus:border-accent focus:ring-4 focus:ring-accent/10 sm:h-16 sm:text-base [&::-webkit-search-cancel-button]:hidden"
+                className="h-14 w-full rounded-full border border-brand/10 bg-white pl-13 pr-12 text-base text-body shadow-[0_8px_30px_rgba(90,24,39,0.06)] outline-none transition-all placeholder:text-muted/70 focus:border-accent focus:ring-4 focus:ring-accent/10 sm:h-16 [&::-webkit-search-cancel-button]:hidden"
               />
 
               {searchQuery && (
@@ -133,8 +133,8 @@ export function Menu() {
               )}
             </div>
 
-            <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-xs">
-              <span className="text-muted">Popular:</span>
+            <div className="scrollbar-none -mx-4 mt-3 flex items-center gap-2 overflow-x-auto px-4 text-xs sm:mx-0 sm:flex-wrap sm:justify-center sm:px-0">
+              <span className="shrink-0 text-muted">Popular:</span>
               {searchSuggestions.map((suggestion) => (
                 <button
                   key={suggestion}
@@ -143,7 +143,7 @@ export function Menu() {
                     setSearchQuery(suggestion);
                     setActiveCategory("all");
                   }}
-                  className="rounded-full border border-brand/10 bg-white/70 px-3 py-1 font-medium text-brand transition-colors hover:border-accent hover:text-accent"
+                  className="shrink-0 rounded-full border border-brand/10 bg-white/70 px-3.5 py-2 font-medium text-brand transition-colors hover:border-accent hover:text-accent"
                 >
                   {suggestion}
                 </button>
@@ -158,7 +158,7 @@ export function Menu() {
         {/* Results */}
         <div
           ref={resultsRef}
-          className="mt-12 scroll-mt-20 sm:mt-16"
+          className="mt-10 scroll-mt-20 sm:mt-16"
         >
           {/* Sticky category navigation */}
           <div className="sticky top-16 z-30 -mx-4 border-y border-brand/5 bg-sand/90 px-4 py-3 backdrop-blur-md sm:mx-0 sm:rounded-full sm:border sm:px-3 lg:top-[4.5rem]">
@@ -239,7 +239,7 @@ function FeaturedCategories({
     .filter((category): category is MenuCategory => Boolean(category));
 
   return (
-    <div className="mt-14 sm:mt-16">
+    <div className="mt-10 sm:mt-16">
       <div className="mb-5 flex items-end justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
@@ -287,7 +287,7 @@ function FeaturedCategoryCard({
     <button
       type="button"
       onClick={onClick}
-      className="group relative block aspect-[3/4] w-40 overflow-hidden rounded-2xl bg-brand text-left shadow-[0_10px_30px_rgba(90,24,39,0.12)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(90,24,39,0.22)] sm:w-full sm:rounded-3xl"
+      className="group relative block aspect-[3/4] w-36 overflow-hidden rounded-2xl bg-brand text-left shadow-[0_10px_30px_rgba(90,24,39,0.12)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(90,24,39,0.22)] sm:w-full sm:rounded-3xl"
     >
       {image && (
         <img
@@ -378,10 +378,10 @@ function CategoryButton({
       aria-pressed={active}
       className={`
         shrink-0
+        h-10
         rounded-full
         border
         px-4
-        py-2
         text-xs
         font-semibold
         transition-all

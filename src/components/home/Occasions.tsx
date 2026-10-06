@@ -27,7 +27,7 @@ export function Occasions() {
   return (
     <section
       id="occasions"
-      className="bg-pattern relative overflow-hidden bg-brand py-20 text-white sm:py-24 lg:py-32"
+      className="bg-pattern relative overflow-hidden bg-brand py-16 text-white sm:py-24 lg:py-32"
     >
       <div
         aria-hidden="true"
@@ -44,7 +44,7 @@ export function Occasions() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <div className="mt-10 grid gap-3 sm:mt-16 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
           {occasions.map((occasion, index) => (
             <Reveal
               key={occasion.title}
@@ -53,21 +53,21 @@ export function Occasions() {
               <button
                 type="button"
                 onClick={() => startEnquiry(occasion.eventType)}
-                className="group flex h-full w-full flex-col rounded-3xl border border-white/10 bg-white/[0.04] p-6 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.08] sm:p-8"
+                className="group grid h-full w-full grid-cols-[auto_1fr] items-start gap-x-4 rounded-3xl border border-white/10 bg-white/[0.04] p-4 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.08] active:bg-white/[0.1] sm:flex sm:flex-col sm:p-8"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/15 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+                <span className="row-span-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/15 sm:h-14 sm:w-14 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
                   {icons[occasion.icon]}
                 </span>
 
-                <h3 className="mt-6 font-display text-2xl font-semibold">
+                <h3 className="font-display text-xl font-semibold sm:mt-6 sm:text-2xl">
                   {occasion.title}
                 </h3>
 
-                <p className="mt-2 flex-1 text-sm leading-6 text-white/65">
+                <p className="mt-1 flex-1 text-sm leading-6 text-white/65 sm:mt-2">
                   {occasion.description}
                 </p>
 
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-accent sm:mt-6">
                   Plan this event
                   <ArrowRightIcon
                     size={16}

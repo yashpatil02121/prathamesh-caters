@@ -1,3 +1,11 @@
+export type ContactPerson = {
+  name: string;
+  phone: string;
+};
+
+const address =
+  "Shop No. 5, A Wing, Krishna Sagar Apt., Near Kashi Vishwanath Temple, R.N.P. Park, S.V. Road, Bhayandar East";
+
 export const business = {
   name: "Prathamesh Decorators & Caterers",
 
@@ -19,19 +27,23 @@ export const business = {
     "Celebration Services",
   ],
 
-  /*
-   * TODO: Replace these placeholder contact details with the real ones.
-   * `whatsapp` must be digits only, with country code (e.g. 919812345678).
-   * Leave a field as "" to hide it on the website.
-   */
   contact: {
-    phone: "+91 00000 00000",
-    whatsapp: "910000000000",
+    /*
+     * The first person is the main contact: used for every
+     * Call / WhatsApp button and for website enquiries.
+     */
+    people: [
+      { name: "Prathmesh Patil", phone: "8828064702" },
+      { name: "Devendra Patil", phone: "9221956137" },
+      { name: "Dipeeka Patil", phone: "9892342809" },
+    ] satisfies ContactPerson[],
+
     email: "",
-    address: "",
-    city: "",
+    address,
+    city: "Bhayandar East",
     hours: "Mon – Sun, 9:00 AM – 9:00 PM",
-    mapUrl: "",
+    mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`,
+    mapEmbedUrl: `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`,
   },
 
   social: {
@@ -40,6 +52,8 @@ export const business = {
     youtube: "",
   },
 } as const;
+
+export const primaryContact = business.contact.people[0];
 
 export const yearsOfExperience =
   new Date().getFullYear() - business.since;

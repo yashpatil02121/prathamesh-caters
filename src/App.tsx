@@ -2,6 +2,7 @@ import { MenuSelectionProvider } from "./context/MenuSelectionProvider";
 import { Footer } from "./components/layout/Footer";
 import { Navbar } from "./components/layout/Navbar";
 import { FloatingActions } from "./components/layout/FloatingActions";
+import { ContactSheet } from "./components/layout/ContactSheet";
 import { Hero } from "./components/home/Hero";
 import { Services } from "./components/home/Services";
 import { Menu } from "./components/home/Menu";
@@ -50,6 +51,8 @@ function App() {
         <Footer />
 
         <FloatingActions />
+
+        <ContactSheet />
       </div>
     </MenuSelectionProvider>
   );

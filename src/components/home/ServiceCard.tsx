@@ -13,7 +13,7 @@ export function ServiceCard({
   icon,
 }: ServiceCardProps) {
   return (
-    <article className="group relative h-full overflow-hidden rounded-2xl border border-brand/10 bg-white p-5 shadow-[0_8px_30px_rgba(90,24,39,0.05)] transition-all duration-500 hover:-translate-y-1.5 hover:border-transparent hover:bg-brand hover:shadow-[0_24px_50px_rgba(90,24,39,0.25)] sm:rounded-3xl sm:p-7 lg:p-8">
+    <article className="group relative h-full overflow-hidden rounded-2xl border border-brand/10 bg-white p-4 shadow-[0_8px_30px_rgba(90,24,39,0.05)] transition-all duration-500 hover:-translate-y-1.5 hover:border-transparent hover:bg-brand hover:shadow-[0_24px_50px_rgba(90,24,39,0.25)] sm:rounded-3xl sm:p-7 lg:p-8">
       {/* Decorative accent */}
       <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-cream transition-all duration-500 group-hover:scale-150 group-hover:bg-white/5" />
 
@@ -27,7 +27,7 @@ export function ServiceCard({
       </div>
 
       {/* Content */}
-      <div className="relative mt-8 sm:mt-12">
+      <div className="relative mt-6 sm:mt-12">
         <h3 className="font-display text-lg font-semibold leading-tight text-brand transition-colors duration-500 group-hover:text-white sm:text-2xl">
           {title}
         </h3>

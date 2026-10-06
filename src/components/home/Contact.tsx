@@ -9,7 +9,7 @@ import {
 import type { EventType } from "../../utils/enquiry";
 import {
   formatMenuForMessage,
-  hasWhatsApp,
+  formatPhone,
   phoneLink,
   whatsappLink,
 } from "../../utils/whatsapp";
@@ -162,15 +162,7 @@ export function Contact() {
 
     const message = lines.join("\n");
 
-    if (hasWhatsApp()) {
-      window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
-    } else if (business.contact.email) {
-      window.location.href = `mailto:${business.contact.email}?subject=${encodeURIComponent(
-        `Event enquiry – ${form.eventType}`,
-      )}&body=${encodeURIComponent(message.replace(/\*/g, ""))}`;
-    } else if (business.contact.phone) {
-      window.location.href = phoneLink();
-    }
+    window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
 
     setSubmitted(true);
   };
@@ -178,7 +170,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-sand/50 py-20 sm:py-24 lg:py-32"
+      className="relative overflow-hidden bg-sand/50 py-16 sm:py-24 lg:py-32"
     >
       <div className="container-custom">
         <Reveal>
@@ -189,10 +181,10 @@ export function Contact() {
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:mt-16 lg:grid-cols-[0.75fr_1.25fr] lg:gap-8">
-          {/* Contact details */}
-          <Reveal className="h-full">
-            <aside className="bg-pattern relative flex h-full flex-col overflow-hidden rounded-3xl bg-brand p-7 text-white sm:p-9">
+        <div className="mt-10 grid gap-5 sm:mt-16 lg:grid-cols-[0.75fr_1.25fr] lg:gap-8">
+          {/* Contact details (below the form on phones) */}
+          <Reveal className="order-2 h-full lg:order-1">
+            <aside className="bg-pattern relative flex h-full flex-col overflow-hidden rounded-3xl bg-brand p-5 text-white sm:p-9">
               <div
                 aria-hidden="true"
                 className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-accent/20 blur-3xl"
@@ -202,33 +194,60 @@ export function Contact() {
                 Talk to us directly
               </h3>
 
-              <p className="relative mt-3 text-sm leading-6 text-white/70">
-                Prefer a quick chat? Call or WhatsApp us — we're happy to
-                help you plan.
+              <p className="relative mt-2 text-sm leading-6 text-white/70">
+                Prefer a quick chat? Call or WhatsApp any of us.
               </p>
 
-              <ul className="relative mt-8 space-y-5">
-                {business.contact.phone && (
-                  <ContactRow
-                    icon={<PhoneIcon size={18} />}
-                    label="Call us"
-                    href={phoneLink()}
+              {/* People */}
+              <ul className="relative mt-6 space-y-2.5">
+                {business.contact.people.map((person, index) => (
+                  <li
+                    key={person.phone}
+                    className="flex items-center gap-3 rounded-2xl bg-white/[0.06] p-3 ring-1 ring-white/10"
                   >
-                    {business.contact.phone}
-                  </ContactRow>
-                )}
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/20 font-display text-lg font-semibold text-accent">
+                      {person.name.charAt(0)}
+                    </span>
 
-                {hasWhatsApp() && (
-                  <ContactRow
-                    icon={<WhatsAppIcon size={18} />}
-                    label="WhatsApp"
-                    href={whatsappLink()}
-                    external
-                  >
-                    Chat with us
-                  </ContactRow>
-                )}
+                    <a
+                      href={phoneLink(person.phone)}
+                      className="min-w-0 flex-1"
+                    >
+                      <span className="flex items-center gap-2 font-semibold">
+                        <span className="truncate">{person.name}</span>
+                        {index === 0 && (
+                          <span className="shrink-0 rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.1em]">
+                            Main
+                          </span>
+                        )}
+                      </span>
+                      <span className="block text-sm text-white/60">
+                        {formatPhone(person.phone)}
+                      </span>
+                    </a>
 
+                    <a
+                      href={whatsappLink(undefined, person.phone)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`WhatsApp ${person.name}`}
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#25D366] transition-transform active:scale-95"
+                    >
+                      <WhatsAppIcon size={18} />
+                    </a>
+
+                    <a
+                      href={phoneLink(person.phone)}
+                      aria-label={`Call ${person.name}`}
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-brand transition-transform active:scale-95"
+                    >
+                      <PhoneIcon size={16} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <ul className="relative mt-6 space-y-4">
                 {business.contact.email && (
                   <ContactRow
                     icon={<MailIcon size={18} />}
@@ -239,43 +258,54 @@ export function Contact() {
                   </ContactRow>
                 )}
 
-                {business.contact.address && (
-                  <ContactRow
-                    icon={<MapPinIcon size={18} />}
-                    label="Visit us"
-                    href={business.contact.mapUrl || undefined}
-                    external
-                  >
-                    {business.contact.address}
-                  </ContactRow>
-                )}
+                <ContactRow
+                  icon={<ClockIcon size={18} />}
+                  label="Working hours"
+                >
+                  {business.contact.hours}
+                </ContactRow>
 
-                {business.contact.hours && (
-                  <ContactRow
-                    icon={<ClockIcon size={18} />}
-                    label="Working hours"
-                  >
-                    {business.contact.hours}
-                  </ContactRow>
-                )}
+                <ContactRow
+                  icon={<MapPinIcon size={18} />}
+                  label="Visit us"
+                  href={business.contact.mapUrl}
+                  external
+                >
+                  <span className="text-sm leading-6">
+                    {business.contact.address}
+                  </span>
+                </ContactRow>
               </ul>
 
-              <div className="relative mt-auto pt-10">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                  <p className="font-display text-lg italic text-accent">
-                    “Atithi Devo Bhava”
-                  </p>
-                  <p className="mt-1 text-xs text-white/60">
-                    Hospitality since {business.since}.
-                  </p>
-                </div>
+              {/* Map */}
+              <div className="relative mt-6 overflow-hidden rounded-2xl ring-1 ring-white/10">
+                <iframe
+                  title={`Map showing ${business.name}`}
+                  src={business.contact.mapEmbedUrl}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="block h-48 w-full border-0"
+                />
               </div>
+
+              <a
+                href={business.contact.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative mt-3 flex h-12 items-center justify-center gap-2 rounded-full bg-white text-sm font-semibold text-brand transition-colors hover:bg-accent hover:text-white"
+              >
+                <MapPinIcon size={16} />
+                Get Directions
+              </a>
             </aside>
           </Reveal>
 
           {/* Enquiry form */}
-          <Reveal delay={120}>
-            <div className="rounded-3xl border border-brand/10 bg-white p-6 shadow-[0_20px_50px_rgba(90,24,39,0.08)] sm:p-9">
+          <Reveal
+            delay={120}
+            className="order-1 lg:order-2"
+          >
+            <div className="rounded-3xl border border-brand/10 bg-white p-5 shadow-[0_20px_50px_rgba(90,24,39,0.08)] sm:p-9">
               {submitted ? (
                 <SuccessState
                   onReset={() => {
@@ -437,9 +467,7 @@ export function Contact() {
 
                   <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-xs text-muted">
-                      {hasWhatsApp()
-                        ? "Your enquiry opens in WhatsApp, ready to send."
-                        : "We'll get back to you as soon as possible."}
+                      Your enquiry opens in WhatsApp, ready to send.
                     </p>
 
                     <Button
@@ -448,7 +476,7 @@ export function Contact() {
                       size="lg"
                       className="w-full sm:w-auto"
                     >
-                      {hasWhatsApp() && <WhatsAppIcon size={18} />}
+                      <WhatsAppIcon size={18} />
                       Send Enquiry
                     </Button>
                   </div>
@@ -474,8 +502,9 @@ function inputClass(error?: string) {
     border
     bg-page
     px-4
-    text-sm
+    text-base
     text-body
+    sm:text-sm
     outline-none
     transition-all
     placeholder:text-muted/60
@@ -591,9 +620,8 @@ function SuccessState({ onReset }: { onReset: () => void }) {
       </h3>
 
       <p className="mt-3 max-w-sm text-sm leading-6 text-muted">
-        {hasWhatsApp()
-          ? "Your enquiry is ready in WhatsApp — just hit send and we'll get back to you shortly."
-          : "Thank you for your enquiry. We'll get back to you shortly."}
+        Your enquiry is ready in WhatsApp — just hit send and we'll
+        get back to you shortly.
       </p>
 
       <button

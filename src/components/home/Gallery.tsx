@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { gallery } from "../../data/gallery";
 import { Reveal } from "../ui/Reveal";
 import { SectionHeading } from "../ui/SectionHeading";
@@ -29,7 +29,7 @@ export function Gallery() {
   return (
     <section
       id="gallery"
-      className="bg-page py-20 sm:py-24 lg:py-32"
+      className="bg-page py-16 sm:py-24 lg:py-32"
     >
       <div className="container-custom">
         <Reveal>
@@ -41,11 +41,11 @@ export function Gallery() {
         </Reveal>
 
         {/* Filters */}
-        <div className="scrollbar-none -mx-4 mt-10 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+        <div className="scrollbar-none -mx-4 mt-8 overflow-x-auto px-4 sm:mx-0 sm:mt-10 sm:px-0">
           <div
             role="tablist"
             aria-label="Gallery categories"
-            className="mx-auto flex w-max gap-2"
+            className="flex w-max gap-2 sm:mx-auto"
           >
             {categories.map((category) => {
               const active = category === activeCategory;
@@ -58,9 +58,10 @@ export function Gallery() {
                   aria-selected={active}
                   onClick={() => setActiveCategory(category)}
                   className={`
+                    h-10
+                    shrink-0
                     rounded-full
                     px-5
-                    py-2.5
                     text-sm
                     font-semibold
                     transition-all
@@ -79,7 +80,7 @@ export function Gallery() {
         </div>
 
         {/* Grid */}
-        <div className="mt-10 grid auto-rows-[160px] grid-cols-2 gap-3 sm:auto-rows-[200px] sm:gap-4 md:grid-cols-3 lg:auto-rows-[220px] lg:grid-cols-4">
+        <div className="mt-8 grid auto-rows-[150px] grid-cols-2 gap-2.5 sm:mt-10 sm:auto-rows-[200px] sm:gap-4 md:grid-cols-3 lg:auto-rows-[220px] lg:grid-cols-4">
           {images.map((image, index) => (
             <button
               key={`${activeCategory}-${image.title}`}
@@ -151,6 +152,7 @@ function Lightbox({
   onClose,
 }: LightboxProps) {
   const image = images[index];
+  const touchStartX = useRef<number | null>(null);
 
   const step = useCallback(
     (direction: 1 | -1) =>
@@ -181,6 +183,17 @@ function Lightbox({
       aria-modal="true"
       aria-label={image.title}
       onClick={onClose}
+      onTouchStart={(event) => {
+        touchStartX.current = event.touches[0].clientX;
+      }}
+      onTouchEnd={(event) => {
+        if (touchStartX.current === null) return;
+
+        const deltaX = event.changedTouches[0].clientX - touchStartX.current;
+        touchStartX.current = null;
+
+        if (Math.abs(deltaX) > 50) step(deltaX < 0 ? 1 : -1);
+      }}
       className="animate-fade-in fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
     >
       <button
@@ -206,7 +219,7 @@ function Lightbox({
           key={image.src}
           src={image.src}
           alt={image.title}
-          className="max-h-[75vh] w-auto rounded-2xl object-contain shadow-2xl"
+          className="max-h-[70svh] w-auto rounded-2xl object-contain shadow-2xl"
         />
 
         <figcaption className="mt-4 flex items-center justify-between gap-4 text-white">
@@ -217,8 +230,9 @@ function Lightbox({
             <span className="font-display text-xl">{image.title}</span>
           </span>
 
-          <span className="text-sm text-white/60">
+          <span className="shrink-0 text-right text-sm text-white/60">
             {index + 1} / {images.length}
+            <span className="block text-xs sm:hidden">Swipe ←→</span>
           </span>
         </figcaption>
       </figure>
@@ -250,7 +264,7 @@ function LightboxArrow({
         absolute
         top-1/2
         z-10
-        flex
+        hidden
         h-12
         w-12
         -translate-y-1/2
@@ -262,7 +276,8 @@ function LightboxArrow({
         transition-colors
         hover:bg-white
         hover:text-brand
-        ${direction === "next" ? "right-3 sm:right-6" : "left-3 sm:left-6"}
+        sm:flex
+        ${direction === "next" ? "right-6" : "left-6"}
       `}
     >
       {direction === "next" ? (

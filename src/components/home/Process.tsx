@@ -28,7 +28,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="bg-sand/50 py-20 sm:py-24 lg:py-32"
+      className="bg-sand/50 py-16 sm:py-24 lg:py-32"
     >
       <div className="container-custom">
         <Reveal>
@@ -39,7 +39,7 @@ export function Process() {
           />
         </Reveal>
 
-        <ol className="relative mt-14 grid gap-8 sm:mt-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <ol className="relative mt-10 grid gap-7 sm:mt-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {/* Connecting line (desktop) */}
           <span
             aria-hidden="true"

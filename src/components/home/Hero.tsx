@@ -7,7 +7,7 @@ import {
   SparkleIcon,
   WhatsAppIcon,
 } from "../ui/Icons";
-import { hasWhatsApp, whatsappLink } from "../../utils/whatsapp";
+import { whatsappLink } from "../../utils/whatsapp";
 import foodImage from "../../assets/food.webp";
 import paneerTikka from "../../assets/menu/paneer-tikka.webp";
 import jalebi from "../../assets/menu/rabdi-with-jalebi.webp";
@@ -46,34 +46,43 @@ export function Hero() {
       id="home"
       className="relative isolate overflow-hidden bg-brand text-white"
     >
+      {/* Mobile: food photo as a full-bleed backdrop */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 -z-10 h-[34rem] lg:hidden"
+      >
+        <img
+          src={foodImage}
+          alt=""
+          fetchPriority="high"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/70 via-brand/85 to-brand" />
+      </div>
+
       {/* Background decoration */}
       <div
         aria-hidden="true"
-        className="bg-pattern absolute inset-0 -z-10"
+        className="bg-pattern absolute inset-0 -z-10 hidden lg:block"
       />
 
       <div
         aria-hidden="true"
-        className="absolute -right-40 -top-40 -z-10 h-[28rem] w-[28rem] rounded-full bg-accent/25 blur-3xl"
-      />
-
-      <div
-        aria-hidden="true"
-        className="absolute -bottom-40 -left-40 -z-10 h-96 w-96 rounded-full bg-white/10 blur-3xl"
+        className="absolute -right-40 -top-40 -z-10 hidden h-[28rem] w-[28rem] rounded-full bg-accent/25 blur-3xl lg:block"
       />
 
       <div className="container-custom">
-        <div className="grid items-center gap-12 pt-12 pb-16 sm:pt-16 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:py-20">
+        <div className="grid items-center gap-12 pt-10 pb-10 sm:pt-16 sm:pb-14 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:py-20">
           {/* Hero content */}
           <div className="relative z-10 max-w-xl lg:max-w-2xl">
             {/* Eyebrow */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-accent backdrop-blur-sm sm:text-xs">
-              <SparkleIcon size={14} />
-              Since {business.since} · {business.brandName}
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/10 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent backdrop-blur-sm sm:mb-6 sm:px-4 sm:py-2 sm:text-xs">
+              <SparkleIcon size={13} />
+              Since {business.since} · {business.contact.city}
             </div>
 
             {/* Heading */}
-            <h1 className="font-display text-[2.6rem] font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="font-display text-[2.6rem] font-semibold leading-[1.05] tracking-tight drop-shadow-sm sm:text-6xl lg:text-7xl">
               Har Khaas
               <span className="block italic text-accent">
                 Mauke Ki,
@@ -82,14 +91,14 @@ export function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mt-6 max-w-md text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
+            <p className="mt-5 max-w-md text-[15px] leading-7 text-white/80 sm:mt-6 sm:text-lg sm:leading-8">
               Pure vegetarian catering, live counters and elegant
-              décor — from the menu to the mandap, we take care of the
-              details that make your celebration truly yours.
+              décor — we take care of every detail of your
+              celebration.
             </p>
 
             {/* CTA */}
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 grid gap-3 sm:mt-9 sm:flex sm:items-center">
               <Button
                 href="#menu"
                 variant="secondary"
@@ -103,33 +112,22 @@ export function Hero() {
                 />
               </Button>
 
-              {hasWhatsApp() ? (
-                <Button
-                  href={whatsappLink(
-                    `Hello ${business.name}! I'd like to enquire about catering for my event.`,
-                  )}
-                  external
-                  variant="outline"
-                  size="lg"
-                  className="w-full border-white/30 text-white hover:border-white hover:bg-white hover:text-brand sm:w-auto"
-                >
-                  <WhatsAppIcon size={18} />
-                  Chat on WhatsApp
-                </Button>
-              ) : (
-                <Button
-                  href="#contact"
-                  variant="outline"
-                  size="lg"
-                  className="w-full border-white/30 text-white hover:border-white hover:bg-white hover:text-brand sm:w-auto"
-                >
-                  Get a Quote
-                </Button>
-              )}
+              <Button
+                href={whatsappLink(
+                  `Hello ${business.name}! I'd like to enquire about catering for my event.`,
+                )}
+                external
+                variant="outline"
+                size="lg"
+                className="w-full border-white/30 bg-white/5 text-white backdrop-blur-sm hover:border-white hover:bg-white hover:text-brand sm:w-auto"
+              >
+                <WhatsAppIcon size={18} />
+                Chat on WhatsApp
+              </Button>
             </div>
 
             {/* Trust chips */}
-            <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/70">
+            <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2.5 text-[13px] text-white/75 sm:mt-9 sm:text-sm">
               {[
                 "Catering + Décor under one roof",
                 "Fully customisable menus",
@@ -147,24 +145,23 @@ export function Hero() {
             </ul>
           </div>
 
-          {/* Hero visual */}
-          <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl sm:aspect-[5/4] lg:aspect-[4/5] lg:rounded-[2.5rem]">
+          {/* Desktop hero visual */}
+          <div className="relative hidden w-full lg:block">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl">
               <img
                 src={foodImage}
                 alt="A spread of freshly prepared dishes by Prathamesh Caterers"
-                fetchPriority="high"
                 className="absolute inset-0 h-full w-full object-cover"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
 
-              <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] backdrop-blur-md sm:left-7 sm:top-7">
+              <div className="absolute left-7 top-7 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] backdrop-blur-md">
                 Sajti Shaamein. Mehakti Daawatein.
               </div>
 
-              <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8">
-                <p className="font-display text-2xl italic sm:text-3xl">
+              <div className="absolute bottom-8 left-8 right-8">
+                <p className="font-display text-3xl italic">
                   “Swad jo yaad rahe.”
                 </p>
               </div>
@@ -175,14 +172,14 @@ export function Hero() {
               image={paneerTikka}
               title="Paneer Tikka"
               subtitle="Signature starter"
-              className="-left-4 top-[18%] hidden sm:flex lg:-left-10"
+              className="-left-10 top-[18%]"
             />
 
             <FloatingDish
               image={jalebi}
               title="Jalebi Rabadi"
               subtitle="Live sweet counter"
-              className="-right-3 bottom-[22%] hidden sm:flex lg:-right-6"
+              className="-right-6 bottom-[22%]"
               delay
             />
           </div>
@@ -193,14 +190,13 @@ export function Hero() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="bg-brand-dark/60 px-5 py-6 text-center backdrop-blur-sm sm:py-8"
+              className="flex flex-col-reverse bg-brand-dark/60 px-3 py-5 text-center backdrop-blur-sm sm:py-8"
             >
-              <dt className="sr-only">{stat.label}</dt>
-              <dd className="font-display text-3xl font-semibold text-accent sm:text-4xl">
-                {stat.value}
-              </dd>
-              <dd className="mt-1 text-xs uppercase tracking-[0.16em] text-white/60 sm:text-sm sm:normal-case sm:tracking-normal">
+              <dt className="mt-1 text-[11px] leading-4 text-white/60 sm:text-sm">
                 {stat.label}
+              </dt>
+              <dd className="font-display text-[1.75rem] font-semibold leading-none text-accent sm:text-4xl">
+                {stat.value}
               </dd>
             </div>
           ))}
@@ -229,7 +225,7 @@ function FloatingDish({
     <div
       aria-hidden="true"
       style={delay ? { animationDelay: "-3s" } : undefined}
-      className={`animate-float-slow absolute items-center gap-3 rounded-2xl bg-white p-2.5 pr-5 text-brand shadow-[0_20px_50px_rgba(0,0,0,0.25)] ${className}`}
+      className={`animate-float-slow absolute flex items-center gap-3 rounded-2xl bg-white p-2.5 pr-5 text-brand shadow-[0_20px_50px_rgba(0,0,0,0.25)] ${className}`}
     >
       <img
         src={image}

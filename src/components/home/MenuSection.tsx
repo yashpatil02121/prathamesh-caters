@@ -21,7 +21,7 @@ export function MenuSection({ category }: MenuSectionProps) {
     <section
       id={`menu-${category.id}`}
       aria-labelledby={`menu-${category.id}-title`}
-      className="scroll-mt-36 rounded-2xl border border-brand/10 bg-white p-4 shadow-[0_8px_30px_rgba(90,24,39,0.04)] sm:rounded-3xl sm:p-7 lg:p-8"
+      className="scroll-mt-36 rounded-2xl border border-brand/10 bg-white p-3.5 shadow-[0_8px_30px_rgba(90,24,39,0.04)] sm:rounded-3xl sm:p-7 lg:p-8"
     >
       {/* Section heading */}
       <div className="mb-5 flex items-end justify-between gap-4 border-b border-brand/5 pb-4 sm:mb-6">
@@ -48,7 +48,7 @@ export function MenuSection({ category }: MenuSectionProps) {
       </div>
 
       {/* Items */}
-      <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
         {category.items.map((item) => {
           const itemKey = selectionKey(category.id, item);
 

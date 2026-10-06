@@ -69,6 +69,22 @@
     color: var(--color-text);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    /* Room for the mobile bottom action bar */
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      padding-bottom: 0;
+    }
+  }
+
+  /* 16px inputs stop iOS Safari zooming in on focus */
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em);
   }
 
   button,
@@ -118,6 +134,10 @@
 /* ========================================
    UTILITIES
    ======================================== */
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
 
 .scrollbar-none {
   scrollbar-width: none;
@@ -210,6 +230,19 @@
   animation: pop-in 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.animate-sheet-up {
+  animation: sheet-up 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -223,7 +256,8 @@
 
   .animate-float-slow,
   .animate-fade-in,
-  .animate-pop-in {
+  .animate-pop-in,
+  .animate-sheet-up {
     animation: none;
   }
 }
