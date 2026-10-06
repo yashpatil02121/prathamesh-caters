@@ -34,7 +34,7 @@ export function About() {
       className="overflow-hidden bg-sand/50 py-16 sm:py-24 lg:py-32"
     >
       <div className="container-custom">
-        <div className="grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-20">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center lg:gap-20">
           {/* Image collage */}
           <Reveal className="relative mx-auto w-full max-w-lg lg:max-w-none">
             <div className="grid grid-cols-5 grid-rows-6 gap-3 sm:gap-4">

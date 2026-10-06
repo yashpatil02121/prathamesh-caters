@@ -44,7 +44,7 @@ export function Occasions() {
           />
         </Reveal>
 
-        <div className="mt-10 grid gap-3 sm:mt-16 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
+        <div className="mt-10 grid grid-cols-1 gap-3 sm:mt-16 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5">
           {occasions.map((occasion, index) => (
             <Reveal
               key={occasion.title}
@@ -53,7 +53,7 @@ export function Occasions() {
               <button
                 type="button"
                 onClick={() => startEnquiry(occasion.eventType)}
-                className="group grid h-full w-full grid-cols-[auto_1fr] items-start gap-x-4 rounded-3xl border border-white/10 bg-white/[0.04] p-4 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.08] active:bg-white/[0.1] sm:flex sm:flex-col sm:p-8"
+                className="group grid h-full w-full grid-cols-[auto_minmax(0,1fr)] items-start gap-x-4 rounded-3xl border border-white/10 bg-white/[0.04] p-4 text-left backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-white/[0.08] active:bg-white/[0.1] sm:flex sm:flex-col sm:p-8"
               >
                 <span className="row-span-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/15 sm:h-14 sm:w-14 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
                   {icons[occasion.icon]}

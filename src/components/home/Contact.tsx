@@ -181,7 +181,7 @@ export function Contact() {
           />
         </Reveal>
 
-        <div className="mt-10 grid gap-5 sm:mt-16 lg:grid-cols-[0.75fr_1.25fr] lg:gap-8">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-16 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-8">
           {/* Contact details (below the form on phones) */}
           <Reveal className="order-2 h-full lg:order-1">
             <aside className="bg-pattern relative flex h-full flex-col overflow-hidden rounded-3xl bg-brand p-5 text-white sm:p-9">
@@ -203,9 +203,10 @@ export function Contact() {
                 {business.contact.people.map((person, index) => (
                   <li
                     key={person.phone}
-                    className="flex items-center gap-3 rounded-2xl bg-white/[0.06] p-3 ring-1 ring-white/10"
+                    className="flex items-center gap-2.5 rounded-2xl bg-white/[0.06] p-3 ring-1 ring-white/10 sm:gap-3"
                   >
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/20 font-display text-lg font-semibold text-accent">
+                    {/* Avatar hidden on small phones to give the name room */}
+                    <span className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/20 font-display text-lg font-semibold text-accent min-[400px]:flex">
                       {person.name.charAt(0)}
                     </span>
 
@@ -213,17 +214,17 @@ export function Contact() {
                       href={phoneLink(person.phone)}
                       className="min-w-0 flex-1"
                     >
-                      <span className="flex items-center gap-2 font-semibold">
-                        <span className="truncate">{person.name}</span>
-                        {index === 0 && (
-                          <span className="shrink-0 rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.1em]">
-                            Main
-                          </span>
-                        )}
+                      <span className="block truncate font-semibold">
+                        {person.name}
                       </span>
-                      <span className="block text-sm text-white/60">
+                      <span className="block whitespace-nowrap text-sm text-white/60">
                         {formatPhone(person.phone)}
                       </span>
+                      {index === 0 && (
+                        <span className="mt-1 inline-block rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.1em]">
+                          Main contact
+                        </span>
+                      )}
                     </a>
 
                     <a
@@ -317,7 +318,7 @@ export function Contact() {
                 <form
                   noValidate
                   onSubmit={handleSubmit}
-                  className="grid gap-5 sm:grid-cols-2"
+                  className="grid grid-cols-1 gap-5 sm:grid-cols-2"
                 >
                   <Field
                     id="enquiry-name"
@@ -498,6 +499,7 @@ function inputClass(error?: string) {
   return `
     h-12
     w-full
+    min-w-0
     rounded-xl
     border
     bg-page

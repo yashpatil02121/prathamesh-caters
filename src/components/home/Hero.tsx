@@ -72,7 +72,7 @@ export function Hero() {
       />
 
       <div className="container-custom">
-        <div className="grid items-center gap-12 pt-10 pb-10 sm:pt-16 sm:pb-14 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:py-20">
+        <div className="grid grid-cols-1 items-center gap-12 pt-10 pb-10 sm:pt-16 sm:pb-14 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:py-20">
           {/* Hero content */}
           <div className="relative z-10 max-w-xl lg:max-w-2xl">
             {/* Eyebrow */}
@@ -98,7 +98,7 @@ export function Hero() {
             </p>
 
             {/* CTA */}
-            <div className="mt-8 grid gap-3 sm:mt-9 sm:flex sm:items-center">
+            <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-9 sm:flex sm:items-center">
               <Button
                 href="#menu"
                 variant="secondary"

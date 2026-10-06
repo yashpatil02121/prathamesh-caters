@@ -89,11 +89,11 @@ export function ContactSheet() {
           {business.contact.people.map((person, index) => (
             <li
               key={person.phone}
-              className={`flex items-center gap-3 rounded-2xl border bg-white p-3 ${
+              className={`flex items-center gap-2.5 rounded-2xl border bg-white p-3 sm:gap-3 ${
                 index === 0 ? "border-accent/40" : "border-brand/10"
               }`}
             >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand font-display text-lg font-semibold text-accent">
+              <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand font-display min-[400px]:flex text-lg font-semibold text-accent">
                 {person.name.charAt(0)}
               </span>
 
@@ -104,7 +104,7 @@ export function ContactSheet() {
                 <span className="block truncate font-semibold text-brand">
                   {person.name}
                 </span>
-                <span className="block text-sm text-muted">
+                <span className="block whitespace-nowrap text-sm text-muted">
                   {formatPhone(person.phone)}
                 </span>
                 {index === 0 && (

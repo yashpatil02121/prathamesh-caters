@@ -46,7 +46,7 @@ export function Faq() {
       className="bg-page py-16 sm:py-24 lg:py-32"
     >
       <div className="container-custom">
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
           <Reveal>
             <SectionHeading
               align="left"

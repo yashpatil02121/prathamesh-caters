@@ -49,7 +49,7 @@ export function SelectedMenuSummary() {
 
       {/* Selected items */}
       <div className="max-h-[420px] overflow-y-auto p-5 sm:p-7">
-        <div className="grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
           {groupSelectedItems(selectedItems).map(([category, items]) => (
             <div key={category}>
               <h4 className="flex items-center justify-between text-xs font-bold uppercase tracking-[0.15em] text-accent">

@@ -39,7 +39,7 @@ export function Process() {
           />
         </Reveal>
 
-        <ol className="relative mt-10 grid gap-7 sm:mt-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <ol className="relative mt-10 grid grid-cols-1 gap-7 sm:mt-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {/* Connecting line (desktop) */}
           <span
             aria-hidden="true"
