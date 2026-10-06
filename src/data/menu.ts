@@ -4,12 +4,6 @@ export type MenuCategory = {
   items: string[];
 };
 
-export type SelectedMenuItem = {
-  categoryId: string;
-  categoryTitle: string;
-  item: string;
-};
-
 export const menu: MenuCategory[] = [
   {
     id: "fresh-juice-soft-drink",

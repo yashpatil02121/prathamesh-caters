@@ -4,24 +4,24 @@ export const navigation = [
     href: "#home",
   },
   {
-    label: "About",
-    href: "#about",
-  },
-  {
-    label: "Catering",
-    href: "#catering",
-  },
-  {
     label: "Menu",
     href: "#menu",
   },
   {
-    label: "Decorations",
-    href: "#decorations",
+    label: "Services",
+    href: "#services",
+  },
+  {
+    label: "Occasions",
+    href: "#occasions",
   },
   {
     label: "Gallery",
     href: "#gallery",
+  },
+  {
+    label: "About",
+    href: "#about",
   },
   {
     label: "Contact",

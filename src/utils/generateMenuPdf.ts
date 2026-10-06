@@ -15,7 +15,7 @@ export function generateMenuPdf(
   const margin = 18;
   const contentWidth = pageWidth - margin * 2;
 
-  let y = 22;
+  let y = 56;
 
   /*
    * Colors
@@ -39,7 +39,7 @@ export function generateMenuPdf(
   pdf.setFontSize(18);
 
   pdf.text(
-    "PRATHAMESH DECORATORS & CATERS",
+    "PRATHAMESH DECORATORS & CATERERS",
     margin,
     18,
   );
@@ -70,7 +70,6 @@ export function generateMenuPdf(
     },
   );
 
-  y = 56;
 
   // ---------------------------------------
   // Group selected items
@@ -212,7 +211,7 @@ export function generateMenuPdf(
     pdf.setTextColor(...muted);
 
     pdf.text(
-      "Prathamesh Decorators & Caters",
+      "Prathamesh Decorators & Caterers",
       margin,
       pageHeight - 7,
     );

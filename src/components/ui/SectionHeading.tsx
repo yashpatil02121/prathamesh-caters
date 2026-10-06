@@ -3,6 +3,7 @@ type SectionHeadingProps = {
   title: string;
   description?: string;
   align?: "left" | "center";
+  tone?: "light" | "dark";
 };
 
 export function SectionHeading({
@@ -10,7 +11,10 @@ export function SectionHeading({
   title,
   description,
   align = "center",
+  tone = "light",
 }: SectionHeadingProps) {
+  const isDark = tone === "dark";
+
   return (
     <div
       className={`
@@ -19,17 +23,35 @@ export function SectionHeading({
       `}
     >
       {eyebrow && (
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-accent">
+        <p className="ornament mb-4 text-xs font-semibold uppercase tracking-[0.28em] sm:text-sm">
           {eyebrow}
         </p>
       )}
 
-      <h2 className="text-3xl font-bold leading-tight text-brand sm:text-4xl lg:text-5xl">
+      <h2
+        className={`
+          font-display
+          text-3xl
+          font-semibold
+          leading-[1.15]
+          sm:text-4xl
+          lg:text-5xl
+          ${isDark ? "text-white" : "text-brand"}
+        `}
+      >
         {title}
       </h2>
 
       {description && (
-        <p className="mt-4 text-base leading-7 text-muted sm:text-lg">
+        <p
+          className={`
+            mt-4
+            text-base
+            leading-7
+            sm:text-lg
+            ${isDark ? "text-white/70" : "text-muted"}
+          `}
+        >
           {description}
         </p>
       )}

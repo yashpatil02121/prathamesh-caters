@@ -1,3 +1,5 @@
+import { CheckIcon, PlusIcon } from "../ui/Icons";
+
 type MenuItemProps = {
   name: string;
   selected: boolean;
@@ -16,6 +18,7 @@ export function MenuItem({
       type="button"
       onClick={onToggle}
       aria-pressed={selected}
+      aria-label={`${selected ? "Remove" : "Add"} ${name}`}
       className={`
         group
         relative
@@ -30,8 +33,8 @@ export function MenuItem({
         sm:rounded-2xl
         ${
           selected
-            ? "border-brand ring-2 ring-brand/20"
-            : "border-brand/10 hover:border-brand/30 hover:shadow-md"
+            ? "border-accent ring-2 ring-accent/40 ring-offset-2"
+            : "border-brand/10 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_12px_30px_rgba(90,24,39,0.15)]"
         }
       `}
     >
@@ -40,8 +43,9 @@ export function MenuItem({
         <img
           src={image}
           alt=""
-          aria-hidden="true"
-          className="
+          loading="lazy"
+          decoding="async"
+          className={`
             absolute
             inset-0
             h-full
@@ -49,21 +53,15 @@ export function MenuItem({
             object-cover
             transition-transform
             duration-500
-            group-hover:scale-105
-          "
+            ${selected ? "scale-105" : "group-hover:scale-105"}
+          `}
         />
       ) : (
-        /* Temporary background until images are added */
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-br
-            from-cream
-            via-white
-            to-cream
-          "
-        />
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-sand via-white to-cream">
+          <span className="font-display text-5xl text-brand/10 sm:text-6xl">
+            {name.charAt(0)}
+          </span>
+        </div>
       )}
 
       {/* Image overlay */}
@@ -75,18 +73,29 @@ export function MenuItem({
           duration-300
           ${
             selected
-              ? "bg-brand/65"
-              : "bg-gradient-to-t from-black/65 via-black/15 to-black/5 group-hover:from-black/70"
+              ? "bg-gradient-to-t from-brand via-brand/50 to-brand/10"
+              : image
+                ? "bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+                : ""
           }
         `}
       />
+
+      {/* Veg marker */}
+      <span
+        aria-hidden="true"
+        title="Vegetarian"
+        className="absolute left-2.5 top-2.5 z-20 flex h-4 w-4 items-center justify-center rounded-[3px] border-[1.5px] border-green-700 bg-white sm:left-3 sm:top-3"
+      >
+        <span className="h-1.5 w-1.5 rounded-full bg-green-700" />
+      </span>
 
       {/* Selected indicator */}
       <span
         className={`
           absolute
-          right-3
-          top-3
+          right-2.5
+          top-2.5
           z-20
           flex
           h-7
@@ -94,30 +103,23 @@ export function MenuItem({
           items-center
           justify-center
           rounded-full
-          border
+          shadow-sm
           transition-all
           duration-200
+          sm:right-3
+          sm:top-3
           ${
             selected
-              ? "border-white bg-accent text-white"
-              : "border-white/70 bg-white/80 text-transparent backdrop-blur-sm"
+              ? "scale-110 bg-accent text-white"
+              : "bg-white/90 text-brand backdrop-blur-sm group-hover:bg-white"
           }
         `}
       >
-        <CheckIcon />
+        {selected ? <CheckIcon size={14} /> : <PlusIcon size={14} strokeWidth={2.2} />}
       </span>
 
       {/* Item name */}
-      <div
-        className="
-          absolute
-          inset-x-0
-          bottom-0
-          z-10
-          p-3
-          sm:p-4
-        "
-      >
+      <div className="absolute inset-x-0 bottom-0 z-10 p-3 sm:p-4">
         <span
           className={`
             block
@@ -126,53 +128,18 @@ export function MenuItem({
             leading-tight
             drop-shadow-sm
             sm:text-base
-            ${
-              image
-                ? "text-white"
-                : "text-brand"
-            }
+            ${image || selected ? "text-white" : "text-brand"}
           `}
         >
           {name}
         </span>
+
+        {selected && (
+          <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[0.15em] text-accent">
+            Added to menu
+          </span>
+        )}
       </div>
-
-      {/* Selected bottom accent */}
-      <span
-        className={`
-          absolute
-          bottom-0
-          left-0
-          z-20
-          h-1
-          bg-accent
-          transition-all
-          duration-300
-          ${
-            selected
-              ? "w-full"
-              : "w-0 group-hover:w-full"
-          }
-        `}
-      />
     </button>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="m5 12 4 4L19 6" />
-    </svg>
   );
 }
